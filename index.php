@@ -113,8 +113,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </ul>
 </header>
 <div class="container">
+    <div class="login-text">
 <h2>Welcome to the logging and registration system of Ronde om texel</h2>
-<h4> Please login in to get our system ready</h4>
+<h4> Please login in to get our system ready</h4></div>
 
         <?php 
         if(!empty($login_err)){
