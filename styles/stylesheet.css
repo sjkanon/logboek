@@ -13,6 +13,7 @@ body{
 
 .brands__item{
 background-color: rgba(205, 255, 255, 0);
+list-style-type: none;
 }
 .brands__item a{
     display: flex;
