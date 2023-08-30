@@ -5,15 +5,9 @@ body{
 }
 
 .avhtech{
- display:block;
- margin-left: 20%;
- margin-right: auto;
  width: 25%;
 }
  .romt{
-    display:block;
-    margin-left: auto;
-    margin-right: 25%;
     width: 25%;
 }
 .container{
