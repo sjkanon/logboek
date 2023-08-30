@@ -8,12 +8,11 @@ body{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-gap: 1rem;
-
+    list-style-type: none;
 }
 
 .brands__item{
 background-color: rgba(205, 255, 255, 0);
-list-style-type: none;
 }
 .brands__item a{
     display: flex;
