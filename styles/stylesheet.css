@@ -14,10 +14,16 @@ body{
 .brands__item{
 background-color: rgba(205, 255, 255, 0);
 }
-
+.brands__item a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
 .brands__item img{
     display:block;
     max-width: 25%;
+    object-fit: contain;
 }
 
 .container{
