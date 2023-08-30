@@ -4,11 +4,20 @@ body{
     background-size: 100%;
 }
 
-.avhtech{
- display:block;
- margin-left: 20%;
- margin-right: auto;
- width: 25%;
+.brands{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 1rem;
+
+}
+
+.brands__item{
+background-color: rgba(205, 255, 255, 0);
+}
+
+.brands__item img{
+    display:block;
+    max-width: 25%;
 }
  .romt{
     display:block;
