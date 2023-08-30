@@ -16,6 +16,9 @@
 <header>
     <nav>
         <UL>HOME</UL>
+        <UL>DASHBOARD</UL>
+        <UL></UL>
+        <UL>INLOGGEN</UL>
     </nav>
 </header>    
 </body>
