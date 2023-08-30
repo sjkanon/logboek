@@ -138,6 +138,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
             <p class="login-text">Don't remember your password? <a href="reset-password.php">Reset now</a>.</p>
+    </br>
         </form>
     </div>
 </body>
