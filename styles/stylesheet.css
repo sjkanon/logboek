@@ -4,7 +4,7 @@ body{
     background-size: 100%;
 }
 header{
-    margin: 0vw 2vw 0vw 0vw;
+    margin-bottom: 2vw;
 }
 .brands{
     display: grid;
