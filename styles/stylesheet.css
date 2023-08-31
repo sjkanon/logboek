@@ -40,3 +40,7 @@ background-color: rgba(205, 255, 255, 0);
     padding: 1vw 0 0 0;
     text-align: center;
 }
+.password-tools{
+    text-align: center;
+    text-decoration: solid;
+}
