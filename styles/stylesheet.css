@@ -27,7 +27,7 @@ background-color: rgba(205, 255, 255, 0);
     object-fit: contain;
 }
 
-.avhtech{
+.brands__item img .avhtech{
     max-width: 35%;
 }
 .container{
