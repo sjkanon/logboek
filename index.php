@@ -105,7 +105,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <ul class="brands">
     <li class="brands__item">
-        <a href="https://avhtech.nl"><img src="../images/AVHTECH-logo.png" alt="Logo AVHTECH"></img></a>
+        <a href="https://avhtech.nl"><img class="avhtech" src="../images/AVHTECH-logo.png" alt="Logo AVHTECH"></img></a>
     </li>
     <li class="brands__item">
         <a href="#"><img src="../images/RomTlogo.png" alt="Logo Ronde om Texel 2023"></img>
