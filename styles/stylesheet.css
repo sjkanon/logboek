@@ -53,6 +53,8 @@ background-color: rgba(205, 255, 255, 0);
     font-style: italic;
 }
 
-.navbar-expand-lg{
-    justify-content: center;
+.navbar-expand-lg .navbar{
+    display: block;
+    text-align: center;
+    text-align-last: right;
 }
