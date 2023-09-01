@@ -58,8 +58,8 @@ background-color: rgba(205, 255, 255, 0);
     text-align: center;
     text-align-last: right;
 }
+
 a.nav-link{
     margin-left: 3vw;
-    margin-right: 2vw;
     justify-content: center;
 }
