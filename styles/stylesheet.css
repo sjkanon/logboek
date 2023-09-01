@@ -42,5 +42,5 @@ background-color: rgba(205, 255, 255, 0);
 }
 .password-tools{
     text-align: center;
-    text-decoration-style: solid;
+    font-weight: bold;
 }
