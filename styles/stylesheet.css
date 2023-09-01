@@ -53,8 +53,13 @@ background-color: rgba(205, 255, 255, 0);
     font-style: italic;
 }
 
-.navbar-expand-lg .navbar{
+.navbar{
+    margin-left: 30vw;
+
     display: block;
     text-align: center;
     text-align-last: right;
+}
+a.nav-link{
+    margin-right: 2vw;
 }
