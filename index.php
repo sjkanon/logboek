@@ -92,7 +92,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Loginpage for Ronde om Texel</title>
+        <title>Loginpage for evenementen</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
         <link rel="stylesheet" media="screen" href="styles/stylesheet.css" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -108,14 +108,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <a href="https://avhtech.nl"><img class="avhtech" src="../images/AVHTECH-logo.png" alt="Logo AVHTECH"></img></a>
     </li>
     <li class="brands__item">
-        <a href="#"><img src="../images/RomTlogo.png" alt="Logo Ronde om Texel 2023"></img>
+        <a href="#"><img src="../images/RomTlogo.png" alt="Logo Evenement"></img>
 </a>
     </li>
 </ul>
 </header>
 <div class="container">
     <div class="login-text">
-<h2>Welcome to the logging and registration system of Ronde om texel</h2>
+<h2>Welcome to the logging and registration system of Evenement</h2>
 <h4> Please login in to get our system ready</h4></div>
 
         <?php 
