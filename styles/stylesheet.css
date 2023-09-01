@@ -53,3 +53,6 @@ background-color: rgba(205, 255, 255, 0);
     font-style: italic;
 }
 
+.btn btn-outline-success my-2 my-sm-0{
+    align-items: center;
+}
