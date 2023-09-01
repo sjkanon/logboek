@@ -115,7 +115,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </header>
 <div class="container">
     <div class="login-text">
-<h2>Welcome to the logging and registration system of Evenement</h2>
+<h2>Welcome to the event system</h2>
 <h4> Please login in to get our system ready</h4></div>
 
         <?php 
@@ -139,6 +139,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
             <p class="password-tools">Don't remember your password? <a href="reset-password.php">Reset now</a>.</p>
+            <p class="powered-by"> powered by Avhtech</p>
     </br>
         </form>
     </div>
