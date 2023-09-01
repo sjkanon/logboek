@@ -52,3 +52,7 @@ background-color: rgba(205, 255, 255, 0);
     font-size: 15px;
     font-style: italic;
 }
+
+.btn {
+    justify-content: center;
+}
