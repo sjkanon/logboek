@@ -123,7 +123,7 @@ $result = mysqli_query($link, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
             echo "<td>{$row['id']}</td>";
-            echo "<td>{$row['username']}</td>"
+            echo "<td>{$row['username']}</td>";
             echo "<td>{$row['grouptype']}</td>"; // Corrected column name
             echo "<td><a href='?edit_id={$row['id']}'>Edit</a> | <a href='?delete_id={$row['id']}'>Delete</a></td>";
             echo "</tr>";
