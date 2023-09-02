@@ -46,7 +46,9 @@ mysqli_stmt_close($update_stmt);
                     <label for="new_grouptype">Group Type</label>
                     <select id="new_grouptype" name="new_grouptype" required>
                         <option value="Admin" <?php if ($edit_grouptype == 'Admin') echo 'selected'; ?>>Admin</option>
-                        <option value="User" <?php if ($edit_grouptype == 'User') echo 'selected'; ?>>User</option>
+                        <option value="logboek" <?php if ($edit_grouptype == 'logboek') echo 'selected'; ?>>Logboek</option>
+                        <option value="uitgifte" <?php if ($edit_grouptype == 'uitgifte') echo 'selected'; ?>>Uitleen</option>
+                        <option value="uluser" <?php if ($edit_grouptype == 'uluser') echo 'selected'; ?>>Logboek en Uitleen</option>
                         <!-- Add more options as needed -->
                     </select>
                 </div>
