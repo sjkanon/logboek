@@ -69,8 +69,8 @@ $result = mysqli_query($link, $sql);
             echo "<tr>";
             echo "<td>{$row['id']}</td>";
             echo "<td>{$row['username']}</td>";
-            echo "<td>{$row['email']}</td>";
-            echo "<td>{$row['role']}</td>";
+            echo "<td>{$row['password']}</td>";
+            echo "<td>{$row['Group']}</td>";
             echo "<td><a href='?edit_id={$row['id']}'>Edit</a> | <a href='?delete_id={$row['id']}'>Delete</a></td>";
             echo "</tr>";
         }
@@ -81,8 +81,8 @@ $result = mysqli_query($link, $sql);
     <h2>Add User</h2>
     <form method="post" action="">
         <label>Username: <input type="text" name="add_username" required></label><br>
-        <label>Email: <input type="email" name="add_email" required></label><br>
-        <label>Role: <input type="text" name="add_role" required></label><br>
+        <label>Password: <input type="email" name="add_password" required></label><br>
+        <label>Role: <input type="text" name="add_group" required></label><br>
         <input type="submit" value="Add User">
     </form>
 
