@@ -40,33 +40,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
+                            // Password is correct, so start a new session
+                        
+                            // Retrieve the user's group from the database
                             $sql = "SELECT grouptype FROM users_new WHERE username = ?";
                             $stmt = mysqli_prepare($link, $sql);
                             mysqli_stmt_bind_param($stmt, "s", $username);
                             mysqli_stmt_execute($stmt);
                             mysqli_stmt_bind_result($stmt, $userGroup);
-                            mysqli_stmt_fetch($stmt);
+                            
+                            if(mysqli_stmt_fetch($stmt)) {
+                                // Store user data in session variables
+                                $_SESSION["loggedin"] = true;
+                                $_SESSION["id"] = $id;
+                                $_SESSION["username"] = $username;
+                                $_SESSION["grouptype"] = $userGroup; // Set the user's group
+                        
+                                // Redirect user to appropriate page based on user group
+                                / Redirect user to welcome page
+                                header("location: welcome.php"); // Change to the correct URL (home.php)
+                            }
+                            
                             mysqli_stmt_close($stmt);
-
-                            $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;
-                            $_SESSION["user_group"] = $userGroup;
-
-                            header("location: welcome.php");
-                        } else{
-                            $login_err = "Invalid username or password.";
                         }
-                    }
-                } else{
-                    $login_err = "Invalid username or password.";
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            mysqli_stmt_close($stmt);
-        }
     }
 
     mysqli_close($link);
