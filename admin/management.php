@@ -109,14 +109,13 @@ $result = mysqli_query($link, $sql);
         </div>
     </nav>
     </header>
-    <content>
+    <div class="container">
         <!-- User List -->
     <h2>User List</h2>
     <table>
         <tr>
             <th>ID</th>
             <th>Username</th>
-            <th>Password</th>
             <th>Group Type</th>
             <th>Action</th>
         </tr>
@@ -124,15 +123,14 @@ $result = mysqli_query($link, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
             echo "<td>{$row['id']}</td>";
-            echo "<td>{$row['username']}</td>";
-            echo "<td>{$row['password']}</td>";
+            echo "<td>{$row['username']}</td>"
             echo "<td>{$row['grouptype']}</td>"; // Corrected column name
             echo "<td><a href='?edit_id={$row['id']}'>Edit</a> | <a href='?delete_id={$row['id']}'>Delete</a></td>";
             echo "</tr>";
         }
         ?>
     </table>
-    </content>
+    </div>
     <footer>
     <p>&copy; 2023 Sjoerd Kanon by AvhTech. All rights reserved.</p>
 </footer>
