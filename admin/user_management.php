@@ -59,7 +59,6 @@ $result = mysqli_query($link, $sql);
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
             <a class="navbar-brand" href="#">EventSystem</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,36 +68,42 @@ $result = mysqli_query($link, $sql);
                 <ul class="navbar-nav ml-auto">
                     <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) { ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="../welcome.php">Home</a>
+                            <a class="nav-link" href="welcome.php">Home</a>
                         </li>
                         <?php if ($_SESSION["grouptype"] === "admin") { ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/admin/management.php">Admin Management</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../uitgifte.php">Uitgifte</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../logboek.php">Logboek</a>
-                            </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/admin/management.php">Admin Management</a>
+                             <ul class="submenu">
+                               <li class="nav-item">
+                                   <a class="nav-link" href="/admin/user_management.php">User Management</a>
+                               </li>
+                        <!-- Add more sub-menu items as needed -->
+                             </ul>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="uitgifte.php">Uitgifte</a>
+                          </li>
+                          <li class="nav-item">
+                                <a class="nav-link" href="logboek.php">Logboek</a>
+                          </li>
                         <?php } elseif ($_SESSION["grouptype"] === "logboek") { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="../logboek.php">Logboek</a>
+                                <a class="nav-link" href="logboek.php">Logboek</a>
                             </li>
                             <?php } elseif ($_SESSION["grouptype"] === "uitgifte") { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="../uitgifte.php">Uitgifte</a>
+                                <a class="nav-link" href="uitgifte.php">Uitgifte</a>
                             </li>
-                            <?php } elseif ($_SESSION["../grouptype"] === "uluser") { ?>
+                            <?php } elseif ($_SESSION["grouptype"] === "uluser") { ?>
                               <li class="nav-item">
                                 <a class="nav-link" href="logboek.php">Logboek</a>
                             </li>
                               <li class="nav-item">
-                                <a class="nav-link" href="../uitgifte.php">Uitgifte</a>
+                                <a class="nav-link" href="uitgifte.php">Uitgifte</a>
                             </li>
                         <?php } ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="../logout.php">Logout</a>
+                            <a class="nav-link" href="logout.php">Logout</a>
                         </li>
                     <?php } else { ?>
                         <li class="nav-item">
