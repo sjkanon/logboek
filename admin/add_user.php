@@ -17,7 +17,9 @@
         <label>Group Type:
             <select name="add_grouptype" required>
                 <option value="Admin">Admin</option>
-                <option value="User">User</option>
+                <option value="Logboek">User</option>
+                <option value="Logboek">User</option>
+                <option value="Logboek">User</option>
                 <!-- Add more options as needed -->
             </select>
         </label><br>

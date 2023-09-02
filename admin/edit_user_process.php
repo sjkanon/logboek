@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["edit_id"])) {
     mysqli_stmt_close($update_stmt);
 
     // Redirect back to user list and edit page
-    header("Location: management.php");
+    header("Location: user_management.php");
     exit();
 }
 

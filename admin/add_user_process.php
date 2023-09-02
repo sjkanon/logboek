@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add_username"])) {
     mysqli_stmt_close($insert_stmt);
 
     // Redirect back to user list and edit page
-    header("Location: management.php");
+    header("Location: user_management.php");
     exit();
 }
 
