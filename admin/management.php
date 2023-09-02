@@ -121,7 +121,6 @@ $result = mysqli_query($link, $sql);
             <tr>
                 <th>ID</th>
                 <th>Username</th>
-                <th>Password</th>
                 <th>Group Type</th>
                 <th>Action</th>
             </tr>
@@ -130,7 +129,6 @@ $result = mysqli_query($link, $sql);
                 echo "<tr>";
                 echo "<td>{$row['id']}</td>";
                 echo "<td>{$row['username']}</td>";
-                echo "<td>{$row['password']}</td>";
                 echo "<td>{$row['grouptype']}</td>";
                 echo "<td><a href='?edit_id={$row['id']}'>Edit</a> | <a href='?delete_id={$row['id']}'>Delete</a></td>";
                 echo "</tr>";
