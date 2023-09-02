@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+// ... rest of your code ...
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
