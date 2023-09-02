@@ -34,7 +34,7 @@ session_start();
                             <li class="nav-item">
                                 <a class="nav-link" href="admin-dashboard.php">Admin Dashboard</a>
                             </li>
-                        <?php } elseif ($_SESSION["grouptype"] === "user") { ?>
+                        <?php } elseif ($_SESSION["grouptype"] === "logboek") { ?>
                             <li class="nav-item">
                                 <a class="nav-link" href="user-profile.php">User Profile</a>
                             </li>
