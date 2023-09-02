@@ -6,11 +6,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["edit_id"])) {
     $edit_id = $_POST["edit_id"];
     $new_username = $_POST["new_username"];
     $new_grouptype = $_POST["new_grouptype"];
-    $new_password = $_POST["new_grouptype"];
+    $new_password = $_POST["new_password"]; // Corrected variable name
 
     $update_sql = "UPDATE users_new SET username=?, grouptype=?, password=? WHERE id=?";
     $update_stmt = mysqli_prepare($link, $update_sql);
-    mysqli_stmt_bind_param($update_stmt, "sssi", $new_username, $new_password, $new_grouptype, $edit_id);
+    mysqli_stmt_bind_param($update_stmt, "sssi", $new_username, $new_grouptype, $new_password, $edit_id); // Corrected parameter order
     mysqli_stmt_execute($update_stmt);
     mysqli_stmt_close($update_stmt);
 }
@@ -19,11 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["edit_id"])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add_username"])) {
     $add_username = $_POST["add_username"];
     $add_password = $_POST["add_password"];
-    $add_grouptype = $_POST["add_grouptype"];
+    $add_grouptype = $_POST["add_group"]; // Corrected variable name
 
     $insert_sql = "INSERT INTO users_new (username, grouptype, password) VALUES (?, ?, ?)";
     $insert_stmt = mysqli_prepare($link, $insert_sql);
-    mysqli_stmt_bind_param($insert_stmt, "sss", $add_username, $add_grouptype, );
+    mysqli_stmt_bind_param($insert_stmt, "sss", $add_username, $add_grouptype, $add_password); // Corrected parameter order
     mysqli_stmt_execute($insert_stmt);
     mysqli_stmt_close($insert_stmt);
 }
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["delete_id"])) {
 }
 
 // Fetch user data from the database
-$sql = "SELECT id, username, email, role FROM users_new";
+$sql = "SELECT id, username, password, grouptype FROM users_new"; // Corrected column name
 $result = mysqli_query($link, $sql);
 ?>
 
@@ -70,7 +70,7 @@ $result = mysqli_query($link, $sql);
             echo "<td>{$row['id']}</td>";
             echo "<td>{$row['username']}</td>";
             echo "<td>{$row['password']}</td>";
-            echo "<td>{$row['Group']}</td>";
+            echo "<td>{$row['grouptype']}</td>"; // Corrected column name
             echo "<td><a href='?edit_id={$row['id']}'>Edit</a> | <a href='?delete_id={$row['id']}'>Delete</a></td>";
             echo "</tr>";
         }
@@ -81,8 +81,8 @@ $result = mysqli_query($link, $sql);
     <h2>Add User</h2>
     <form method="post" action="">
         <label>Username: <input type="text" name="add_username" required></label><br>
-        <label>Password: <input type="email" name="add_password" required></label><br>
-        <label>Role: <input type="text" name="add_group" required></label><br>
+        <label>Password: <input type="password" name="add_password" required></label><br> <!-- Changed to password input type -->
+        <label>Group Type: <input type="text" name="add_group" required></label><br> <!-- Corrected variable name -->
         <input type="submit" value="Add User">
     </form>
 
@@ -90,11 +90,11 @@ $result = mysqli_query($link, $sql);
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["edit_id"])) {
         $edit_id = $_GET["edit_id"];
-        $edit_sql = "SELECT id, username, email, role FROM users WHERE id=?";
+        $edit_sql = "SELECT id, username, password, grouptype FROM users_new WHERE id=?";
         $edit_stmt = mysqli_prepare($link, $edit_sql);
         mysqli_stmt_bind_param($edit_stmt, "i", $edit_id);
         mysqli_stmt_execute($edit_stmt);
-        mysqli_stmt_bind_result($edit_stmt, $edit_id, $edit_username, $edit_email, $edit_role);
+        mysqli_stmt_bind_result($edit_stmt, $edit_id, $edit_username, $edit_password, $edit_grouptype);
         mysqli_stmt_fetch($edit_stmt);
         mysqli_stmt_close($edit_stmt);
         ?>
@@ -103,8 +103,8 @@ $result = mysqli_query($link, $sql);
         <form method="post" action="">
             <input type="hidden" name="edit_id" value="<?php echo $edit_id; ?>">
             <label>Username: <input type="text" name="new_username" value="<?php echo $edit_username; ?>" required></label><br>
-            <label>Email: <input type="email" name="new_email" value="<?php echo $edit_email; ?>" required></label><br>
-            <label>Role: <input type="text" name="new_role" value="<?php echo $edit_role; ?>" required></label><br>
+            <label>Password: <input type="password" name="new_password" value="<?php echo $edit_password; ?>" required></label><br>
+            <label>Group Type: <input type="text" name="new_grouptype" value="<?php echo $edit_grouptype; ?>" required></label><br> <!-- Corrected variable name -->
             <input type="submit" value="Save Changes">
         </form>
     <?php
