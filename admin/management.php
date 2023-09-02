@@ -59,7 +59,7 @@ $result = mysqli_query($link, $sql);
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
+
             <a class="navbar-brand" href="#">EventSystem</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,7 +110,6 @@ $result = mysqli_query($link, $sql);
                     <?php } ?>
                 </ul>
             </div>
-        </div>
     </nav>
     </header>
     <div class="container">
