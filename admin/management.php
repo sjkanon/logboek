@@ -52,7 +52,7 @@ $result = mysqli_query($link, $sql);
     <title>Dashboard - EventSystem</title>
     <link rel="stylesheet" media="screen" href="../styles/stylesheet.css" />
     <link rel="stylesheet" media="screen" href="../styles/styles.css" />
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
