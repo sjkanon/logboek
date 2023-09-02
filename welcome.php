@@ -32,7 +32,7 @@ session_start();
                         </li>
                         <?php if ($_SESSION["grouptype"] === "admin") { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="management.php">Admin Management</a>
+                                <a class="nav-link" href="/admin/management.php">Admin Management</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="uitgifte.php">Uitgifte</a>
