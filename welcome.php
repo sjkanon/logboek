@@ -23,18 +23,11 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">dashboard</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">logboek</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">uitgifte</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="logout.php">Logout</a>
-      </li>
+    <nav>
+        <ul>
+            <?php include 'navbar_logic.php'; ?>
+        </ul>
+    </nav>
     </ul>
  
     </form>
