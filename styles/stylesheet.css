@@ -63,3 +63,16 @@ a.nav-link{
     margin-left: 2vw;
     justify-content: center;
 }
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #888;
+}

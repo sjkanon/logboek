@@ -44,7 +44,7 @@ session_start();
                             </li>
                             <?php } elseif ($_SESSION["grouptype"] === "uluser") { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="logboek.php">Uitgifte</a>
+                                <a class="nav-link" href="uitgifte.php">Uitgifte</a>
                             </li>
                         <?php } ?>
                         <li class="nav-item">
@@ -63,7 +63,9 @@ session_start();
         </div>
     </nav>
     </header>
-    <!-- Your body content here -->
+    <footer>
+    <p>&copy; 2023 Your Company Name. All rights reserved.</p>
+</footer>
 </body>
 </html>
 
