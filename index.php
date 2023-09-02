@@ -40,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
-                            $sql = "SELECT user_group FROM users_new WHERE username = ?";
+                            $sql = "SELECT grouptype FROM users_new WHERE username = ?";
                             $stmt = mysqli_prepare($link, $sql);
                             mysqli_stmt_bind_param($stmt, "s", $username);
                             mysqli_stmt_execute($stmt);
