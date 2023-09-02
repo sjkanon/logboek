@@ -115,32 +115,58 @@ $result = mysqli_query($link, $sql);
     <div class="container">
         <h1>User Management</h1>
 
-        <!-- User List -->
-        <h2>User List</h2>
-        <table class="user-table">
-            <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>Group Type</th>
-                <th>Action</th>
-            </tr>
-            <?php
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>";
-                echo "<td>{$row['id']}</td>";
-                echo "<td>{$row['username']}</td>";
-                echo "<td>{$row['grouptype']}</td>";
-                echo "<td><a href='?edit_id={$row['id']}'>Edit</a> | <a href='?delete_id={$row['id']}'>Delete</a></td>";
-                echo "</tr>";
-            }
-            ?>
-        </table>
-
         <!-- Add User Button -->
         <div class="add-user-button">
             <a href="add_user.php" class="btn">Add User</a>
         </div>
+
+        <!-- Group Filter -->
+        <div class="group-filter">
+            <label for="group_select">Filter by Group:</label>
+            <select id="group_select" onchange="filterByGroup(this.value)">
+                <option value="">All</option>
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+
+        <!-- User List -->
+        <form method="post" action="">
+            <table class="user-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Group Type</th>
+                    <th>Action</th>
+                </tr>
+                <?php
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                    echo "<td>{$row['id']}</td>";
+                    echo "<td>{$row['username']}</td>";
+                    echo "<td>{$row['grouptype']}</td>";
+                    echo "<td>
+                            <a href='edit_user.php?edit_id={$row['id']}' class='btn'>Edit</a>
+                            <a href='user_management.php?delete_id={$row['id']}' class='btn' onclick='return confirm(\"Are you sure you want to delete this user?\")'>Delete</a>
+                          </td>";
+                    echo "</tr>";
+                }
+                ?>
+            </table>
+        </form>
     </div>
+    </div>
+
+    <script>
+        function filterByGroup(group) {
+            if (group) {
+                window.location.href = `user_management.php?group=${group}`;
+            } else {
+                window.location.href = 'user_management.php';
+            }
+        }
+    </script>
     <footer>
     <p>&copy; 2023 Sjoerd Kanon by AvhTech. All rights reserved.</p>
 </footer>
