@@ -1,27 +1,22 @@
 <?php
-// Establish a database connection
-// Include config file
-require_once "config.php";
+// navbar_logic.php
 
-// Simulate the current user's group (you would retrieve this from your authentication system)
-$userGroup = 'user'; // Change this based on your scenario
+// Retrieve the user's group from the session
+$userGroup = isset($_SESSION["user_group"]) ? $_SESSION["user_group"] : "";
 
-// Fetch navbar items based on the user's group from the database
-$query = "SELECT navbar_items FROM user_groups WHERE group_name = ?";
-$stmt = $conn->prepare($query);
-$stmt->bind_param("s", $userGroup);
-$stmt->execute();
-$stmt->bind_result($navbarItems);
-$stmt->fetch();
+// Simulate user groups (you would fetch this information from a database)
+$userGroups = [
+    'admin' => ['Home','Logboek' ,'Uitgifte', 'Users', 'Settings'],
+    'logboek' => ['Home', 'Logboek' ,'Profile', 'Settings'],
+    'uitgifte' => ['Home', 'Uitgifte' ,'Profile', 'Settings']
+];
 
-$stmt->close();
-$conn->close();
-
-// Convert the fetched navbar items to an array
-$navbarItemsArray = explode(',', $navbarItems);
+// Determine which navbar items to display based on the user's group
+$navbarItems = isset($userGroups[$userGroup]) ? $userGroups[$userGroup] : [];
 
 // Loop through the navbar items and display them
-foreach ($navbarItemsArray as $item) {
+foreach ($navbarItems as $item) {
     echo '<li><a href="#">' . $item . '</a></li>';
 }
 ?>
+
