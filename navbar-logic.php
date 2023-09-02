@@ -35,10 +35,7 @@ $navItems = array(
 );
 
 // Replace 'user_group' with the actual session key that stores the user's group
-$_SESSION["loggedin"] = true;
-$_SESSION["id"] = $id;
-$_SESSION["username"] = $username;
-$_SESSION["user_group"] = $userGroup;
+$userGroup = isset($_SESSION['user_group']) ? $_SESSION['user_group'] : 'public';
 ?>
 
 <ul class="navbar-nav">
