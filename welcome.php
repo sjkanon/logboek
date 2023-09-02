@@ -54,29 +54,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){
-                            // Password is correct, so start a new session
-                            session_start();
-                            
-                            // Store data in session variables
-                            $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
-                            
-                            // Redirect user to welcome page
-                            header("location: welcome.php");
-                        } else{
-                            // Password is not valid, display a generic error message
-                            $login_err = "Invalid username or password.";
-                        }
+                       // ... (your authentication logic)
+                      if(password_verify($password, $hashed_password)){
+                      // Password is correct, so start a new session
+                      // Retrieve the user's group from the database
+                      $sql = "SELECT grouptype FROM users_new WHERE username = ?";
+                      $stmt = mysqli_prepare($link, $sql);
+                      mysqli_stmt_bind_param($stmt, "s", $username);
+                      mysqli_stmt_execute($stmt);
+                      mysqli_stmt_bind_result($stmt, $userGroup);
+                      mysqli_stmt_fetch($stmt);
+                      mysqli_stmt_close($stmt);
+
+                      // Store user data in session variables
+                      $_SESSION["loggedin"] = true;
+                      $_SESSION["id"] = $id;
+                      $_SESSION["username"] = $username;
+                      $_SESSION["grouptype"] = $userGroup;
+
+                      // Redirect user to welcome page
+                      header("location: welcome.php");
                     }
-                } else{
-                    // Username doesn't exist, display a generic error message
-                    $login_err = "Invalid username or password.";
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
+
 
             // Close statement
             mysqli_stmt_close($stmt);
