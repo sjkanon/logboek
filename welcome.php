@@ -36,7 +36,7 @@ session_start();
                             </li>
                         <?php } elseif ($_SESSION["grouptype"] === "logboek") { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="user-profile.php">User Profile</a>
+                                <a class="nav-link" href="logboek.php">Logboek</a>
                             </li>
                         <?php } ?>
                         <li class="nav-item">
