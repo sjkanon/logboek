@@ -48,71 +48,12 @@ $result = mysqli_query($link, $sql);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Management | EventSystem</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard - EventSystem</title>
+    <link rel="stylesheet" media="screen" href="styles/stylesheet.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>User Management</h1>
-
-    <!-- User List -->
-    <h2>User List</h2>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Group Type</th>
-            <th>Action</th>
-        </tr>
-        <?php
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>";
-            echo "<td>{$row['id']}</td>";
-            echo "<td>{$row['username']}</td>";
-            echo "<td>{$row['password']}</td>";
-            echo "<td>{$row['grouptype']}</td>"; // Corrected column name
-            echo "<td><a href='?edit_id={$row['id']}'>Edit</a> | <a href='?delete_id={$row['id']}'>Delete</a></td>";
-            echo "</tr>";
-        }
-        ?>
-    </table>
-
-    <!-- Add User Form -->
-    <h2>Add User</h2>
-    <form method="post" action="">
-        <label>Username: <input type="text" name="add_username" required></label><br>
-        <label>Password: <input type="password" name="add_password" required></label><br> <!-- Changed to password input type -->
-        <label>Group Type: <input type="text" name="add_group" required></label><br> <!-- Corrected variable name -->
-        <input type="submit" value="Add User">
-    </form>
-
-    <!-- Edit User Form -->
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["edit_id"])) {
-        $edit_id = $_GET["edit_id"];
-        $edit_sql = "SELECT id, username, password, grouptype FROM users_new WHERE id=?";
-        $edit_stmt = mysqli_prepare($link, $edit_sql);
-        mysqli_stmt_bind_param($edit_stmt, "i", $edit_id);
-        mysqli_stmt_execute($edit_stmt);
-        mysqli_stmt_bind_result($edit_stmt, $edit_id, $edit_username, $edit_password, $edit_grouptype);
-        mysqli_stmt_fetch($edit_stmt);
-        mysqli_stmt_close($edit_stmt);
-        ?>
-
-        <h2>Edit User</h2>
-        <form method="post" action="">
-            <input type="hidden" name="edit_id" value="<?php echo $edit_id; ?>">
-            <label>Username: <input type="text" name="new_username" value="<?php echo $edit_username; ?>" required></label><br>
-            <label>Password: <input type="password" name="new_password" value="<?php echo $edit_password; ?>" required></label><br>
-            <label>Group Type: <input type="text" name="new_grouptype" value="<?php echo $edit_grouptype; ?>" required></label><br> <!-- Corrected variable name -->
-            <input type="submit" value="Save Changes">
-        </form>
-    <?php
-    }
-    ?>
-
-    <?php
-    mysqli_close($link);
-    ?>
+    <!-- ... HTML content ... -->
 </body>
 </html>
