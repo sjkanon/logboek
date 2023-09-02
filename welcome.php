@@ -64,7 +64,7 @@ session_start();
     </nav>
     </header>
     <footer>
-    <p>&copy; 2023 Your Company Name. All rights reserved.</p>
+    <p>&copy; 2023 Sjoerd Kanon by AvhTech. All rights reserved.</p>
 </footer>
 </body>
 </html>
