@@ -65,36 +65,36 @@ $result = mysqli_query($link, $sql);
                 <ul class="navbar-nav ml-auto">
                     <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) { ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="welcome.php">Home</a>
+                            <a class="nav-link" href="../welcome.php">Home</a>
                         </li>
                         <?php if ($_SESSION["grouptype"] === "admin") { ?>
                             <li class="nav-item">
                                 <a class="nav-link" href="/admin/management.php">Admin Management</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="uitgifte.php">Uitgifte</a>
+                                <a class="nav-link" href="../uitgifte.php">Uitgifte</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="logboek.php">Logboek</a>
+                                <a class="nav-link" href="../logboek.php">Logboek</a>
                             </li>
                         <?php } elseif ($_SESSION["grouptype"] === "logboek") { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="logboek.php">Logboek</a>
+                                <a class="nav-link" href="../logboek.php">Logboek</a>
                             </li>
                             <?php } elseif ($_SESSION["grouptype"] === "uitgifte") { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="uitgifte.php">Uitgifte</a>
+                                <a class="nav-link" href="../uitgifte.php">Uitgifte</a>
                             </li>
-                            <?php } elseif ($_SESSION["grouptype"] === "uluser") { ?>
+                            <?php } elseif ($_SESSION["../grouptype"] === "uluser") { ?>
                               <li class="nav-item">
                                 <a class="nav-link" href="logboek.php">Logboek</a>
                             </li>
                               <li class="nav-item">
-                                <a class="nav-link" href="uitgifte.php">Uitgifte</a>
+                                <a class="nav-link" href="../uitgifte.php">Uitgifte</a>
                             </li>
                         <?php } ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="logout.php">Logout</a>
+                            <a class="nav-link" href="../logout.php">Logout</a>
                         </li>
                     <?php } else { ?>
                         <li class="nav-item">
