@@ -49,8 +49,8 @@ $result = mysqli_query($link, $sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin management - EventSystem</title>
-    <link rel="stylesheet" media="screen" href="styles/stylesheet.css" />
+    <title>Dashboard - EventSystem</title>
+    <link rel="stylesheet" media="screen" href="../styles/stylesheet.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
