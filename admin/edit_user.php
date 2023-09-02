@@ -1,5 +1,20 @@
 <?php
 require_once "../config.php";
+
+// Initialize variables
+$edit_id = $edit_username = $edit_grouptype = $edit_password = "";
+
+// Fetch user data if editing
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["edit_id"])) {
+    $edit_id = $_GET["edit_id"];
+    $edit_sql = "SELECT username, grouptype FROM users_new WHERE id=?";
+    $edit_stmt = mysqli_prepare($link, $edit_sql);
+    mysqli_stmt_bind_param($edit_stmt, "i", $edit_id);
+    mysqli_stmt_execute($edit_stmt);
+    mysqli_stmt_bind_result($edit_stmt, $edit_username, $edit_grouptype);
+    mysqli_stmt_fetch($edit_stmt);
+    mysqli_stmt_close($edit_stmt);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,48 +30,31 @@ require_once "../config.php";
     <div class="container">
         <h1>Edit User</h1>
 
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["edit_id"])) {
-            $edit_id = $_GET["edit_id"];
-            // Get user input
-$new_password = $_POST["new_password"]; // Plain text new password
-
-// Hash the new password
-$hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
-
-// Update the hashed password in the database
-$update_sql = "UPDATE users_new SET password=? WHERE id=?";
-$update_stmt = mysqli_prepare($link, $update_sql);
-mysqli_stmt_bind_param($update_stmt, "si", $hashed_new_password, $user_id);
-mysqli_stmt_execute($update_stmt);
-mysqli_stmt_close($update_stmt);
-            ?>
-
-            <form method="post" action="edit_user_process.php">
-                <input type="hidden" name="edit_id" value="<?php echo $edit_id; ?>">
-                <div class="form-group">
-                    <label for="new_username">Username</label>
-                    <input type="text" id="new_username" name="new_username" value="<?php echo $edit_username; ?>" required>
-                </div>
-                <div class="form-group">
-                    <label for="new_password">Password</label>
-                    <input type="password" id="new_password" name="new_password" value="<?php echo $edit_password; ?>" required>
-                </div>
-                <div class="form-group">
-                    <label for="new_grouptype">Group Type</label>
-                    <select id="new_grouptype" name="new_grouptype" required>
-                        <option value="Admin" <?php if ($edit_grouptype == 'Admin') echo 'selected'; ?>>Admin</option>
-                        <option value="logboek" <?php if ($edit_grouptype == 'logboek') echo 'selected'; ?>>Logboek</option>
-                        <option value="uitgifte" <?php if ($edit_grouptype == 'uitgifte') echo 'selected'; ?>>Uitleen</option>
-                        <option value="uluser" <?php if ($edit_grouptype == 'uluser') echo 'selected'; ?>>Logboek en Uitleen</option>
-                        <!-- Add more options as needed -->
-                    </select>
-                </div>
-                <button type="submit" class="btn">Save Changes</button>
-            </form>
-        <?php
-        }
-        ?>
+        <!-- Edit User Form -->
+        <h2>Edit User</h2>
+        <form method="post" action="">
+            <input type="hidden" name="edit_id" value="<?php echo $edit_id; ?>">
+            <div class="form-group">
+                <label for="new_username">Username</label>
+                <input type="text" id="new_username" name="new_username" value="<?php echo $edit_username; ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="new_grouptype">Group Type</label>
+                <select id="new_grouptype" name="new_grouptype">
+                    <option value="admin" <?php if ($edit_grouptype === "admin") echo "selected"; ?>>Admin</option>
+                    <option value="logboek" <?php if ($edit_grouptype === "logboek") echo "selected"; ?>>Logboek</option>
+                    <option value="uitgifte" <?php if ($edit_grouptype === "uitgifte") echo "selected"; ?>>Uitgifte</option>
+                    <option value="uluser" <?php if ($edit_grouptype === "uluser") echo "selected"; ?>>UL User</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="new_password">New Password</label>
+                <input type="password" id="new_password" name="new_password" placeholder="Leave blank to keep current password">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Save Changes">
+            </div>
+        </form>
 
         <div class="back-button">
             <a href="user_management.php" class="btn">Back to User List</a>
