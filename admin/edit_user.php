@@ -17,19 +17,19 @@ require_once "../config.php";
 
         <!-- Edit User Form -->
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["edit_id"])) {
-    $edit_id = $_GET["edit_id"];
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["edit_id"])) {
+    $edit_id = $_POST["edit_id"];
+    $new_username = $_POST["new_username"];
+    $new_grouptype = $_POST["new_grouptype"];
+    $new_password = empty($_POST["new_password"]) ? $edit_password : password_hash($_POST["new_password"], PASSWORD_DEFAULT);
 
-    // Retrieve user details from the database
-    $edit_sql = "SELECT id, username, grouptype FROM users_new WHERE id=?";
-    $edit_stmt = mysqli_prepare($link, $edit_sql);
-    mysqli_stmt_bind_param($edit_stmt, "i", $edit_id);
-    mysqli_stmt_execute($edit_stmt);
-    mysqli_stmt_bind_result($edit_stmt, $edit_id, $edit_username, $edit_grouptype);
-    mysqli_stmt_fetch($edit_stmt);
-    mysqli_stmt_close($edit_stmt);
-    ?>
-
+    $update_sql = "UPDATE users_new SET username=?, grouptype=?, password=? WHERE id=?";
+    $update_stmt = mysqli_prepare($link, $update_sql);
+    mysqli_stmt_bind_param($update_stmt, "sssi", $new_username, $new_grouptype, $new_password, $edit_id);
+    mysqli_stmt_execute($update_stmt);
+    mysqli_stmt_close($update_stmt);
+}
+?>
     <h2>Edit User</h2>
     <form method="post" action="">
         <input type="hidden" name="edit_id" value="<?php echo $edit_id; ?>">
@@ -45,6 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["edit_id"])) {
                 <option value="uitgifte" <?php if ($edit_grouptype === "uitgifte") echo "selected"; ?>>Uitgifte</option>
                 <option value="uluser" <?php if ($edit_grouptype === "uluser") echo "selected"; ?>>UL User</option>
             </select>
+        </div>
+        <div class="form-group">
+            <label for="new_password">New Password</label>
+            <input type="password" id="new_password" name="new_password" placeholder="Leave blank to keep current password">
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Save Changes">
