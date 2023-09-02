@@ -1,22 +1,47 @@
 <?php
-// navbar_logic.php
+// Array of navigation items based on user groups
+$navItems = array(
+    'logboek' => array(
+        array('url' => 'home.php', 'label' => 'Home'),
+        array('url' => 'logboek.php', 'label' => 'Logboek'),
+        array('url' => 'settings.php', 'label' => 'Settings')
+        array('url' => 'profile.php', 'label' => 'Profile'),
+        array('url' => 'logout.php', 'label' => 'Logout'),
+    ),
+    'uitgifte' => array(
+        array('url' => 'home.php', 'label' => 'Home'),
+        array('url' => 'uitgifte.php', 'label' => 'Uitgifte'),
+        array('url' => 'settings.php', 'label' => 'Settings')
+        array('url' => 'profile.php', 'label' => 'Profile'),
+        array('url' => 'logout.php', 'label' => 'Logout'),
+    ),
+    'uluser' => array(
+        array('url' => 'home.php', 'label' => 'Home'),
+        array('url' => 'logboek.php', 'label' => 'Logboek'),
+        array('url' => 'uitgifte.php', 'label' => 'Uitgifte'),
+        array('url' => 'settings.php', 'label' => 'Settings'),
+        array('url' => 'logout.php', 'label' => 'Logout'),
+    ),
+    'admin' => array(
+        array('url' => 'home.php', 'label' => 'Home'),
+        array('url' => 'logboek.php', 'label' => 'Logboek'),
+        array('url' => 'uitgifte.php', 'label' => 'Uitgifte'),
+        array('url' => 'settings.php', 'label' => 'Settings')
+        array('url' => 'dashboard.php', 'label' => 'Dashboard'),
+        array('url' => 'manage.php', 'label' => 'Manage'),
+        array('url' => 'logout.php', 'label' => 'Logout'),
+    ),
+    // Add more groups and items as needed
+);
 
-// Retrieve the user's group from the session
-$userGroup = isset($_SESSION["user_group"]) ? $_SESSION["user_group"] : "";
-
-// Simulate user groups (you would fetch this information from a database)
-$userGroups = [
-    'admin' => ['Home','Logboek' ,'Uitgifte', 'Users', 'Settings'],
-    'logboek' => ['Home', 'Logboek' ,'Profile', 'Settings'],
-    'uitgifte' => ['Home', 'Uitgifte' ,'Profile', 'Settings']
-];
-
-// Determine which navbar items to display based on the user's group
-$navbarItems = isset($userGroups[$userGroup]) ? $userGroups[$userGroup] : [];
-
-// Loop through the navbar items and display them
-foreach ($navbarItems as $item) {
-    echo '<li><a href="#">' . $item . '</a></li>';
-}
+// Replace 'user_group' with the actual session key that stores the user's group
+$userGroup = isset($_SESSION['user_group']) ? $_SESSION['user_group'] : 'public';
 ?>
 
+<ul class="navbar-nav">
+    <?php foreach ($navItems[$userGroup] as $item): ?>
+        <li class="nav-item">
+            <a class="nav-link" href="<?php echo $item['url']; ?>"><?php echo $item['label']; ?></a>
+        </li>
+    <?php endforeach; ?>
+</ul>
