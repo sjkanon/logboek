@@ -18,13 +18,18 @@ require_once "../config.php";
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["edit_id"])) {
             $edit_id = $_GET["edit_id"];
-            $edit_sql = "SELECT id, username, password, grouptype FROM users_new WHERE id=?";
-            $edit_stmt = mysqli_prepare($link, $edit_sql);
-            mysqli_stmt_bind_param($edit_stmt, "i", $edit_id);
-            mysqli_stmt_execute($edit_stmt);
-            mysqli_stmt_bind_result($edit_stmt, $edit_id, $edit_username, $edit_password, $edit_grouptype);
-            mysqli_stmt_fetch($edit_stmt);
-            mysqli_stmt_close($edit_stmt);
+            // Get user input
+$new_password = $_POST["new_password"]; // Plain text new password
+
+// Hash the new password
+$hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
+
+// Update the hashed password in the database
+$update_sql = "UPDATE users_new SET password=? WHERE id=?";
+$update_stmt = mysqli_prepare($link, $update_sql);
+mysqli_stmt_bind_param($update_stmt, "si", $hashed_new_password, $user_id);
+mysqli_stmt_execute($update_stmt);
+mysqli_stmt_close($update_stmt);
             ?>
 
             <form method="post" action="edit_user_process.php">
