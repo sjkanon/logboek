@@ -51,6 +51,7 @@ $result = mysqli_query($link, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard - EventSystem</title>
     <link rel="stylesheet" media="screen" href="../styles/stylesheet.css" />
+    <link rel="stylesheet" media="screen" href="../styles/styles.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -110,26 +111,35 @@ $result = mysqli_query($link, $sql);
     </nav>
     </header>
     <div class="container">
+        <h1>User Management</h1>
+
         <!-- User List -->
-    <h2>User List</h2>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Group Type</th>
-            <th>Action</th>
-        </tr>
-        <?php
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>";
-            echo "<td>{$row['id']}</td>";
-            echo "<td>{$row['username']}</td>";
-            echo "<td>{$row['grouptype']}</td>"; // Corrected column name
-            echo "<td><a href='?edit_id={$row['id']}'>Edit</a> | <a href='?delete_id={$row['id']}'>Delete</a></td>";
-            echo "</tr>";
-        }
-        ?>
-    </table>
+        <h2>User List</h2>
+        <table class="user-table">
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Group Type</th>
+                <th>Action</th>
+            </tr>
+            <?php
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td>{$row['id']}</td>";
+                echo "<td>{$row['username']}</td>";
+                echo "<td>{$row['password']}</td>";
+                echo "<td>{$row['grouptype']}</td>";
+                echo "<td><a href='?edit_id={$row['id']}'>Edit</a> | <a href='?delete_id={$row['id']}'>Delete</a></td>";
+                echo "</tr>";
+            }
+            ?>
+        </table>
+
+        <!-- Add User Button -->
+        <div class="add-user-button">
+            <a href="add_user.php" class="btn">Add User</a>
+        </div>
     </div>
     <footer>
     <p>&copy; 2023 Sjoerd Kanon by AvhTech. All rights reserved.</p>
