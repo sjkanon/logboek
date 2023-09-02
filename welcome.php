@@ -30,20 +30,20 @@ session_start();
                         </li>
                         <?php if ($_SESSION["grouptype"] === "admin") { ?>
                           <li class="nav-item">
-                    <a class="nav-link" href="/admin/management.php">Admin Management</a>
-                    <ul class="submenu">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/user_management.php">User Management</a>
-                        </li>
+                            <a class="nav-link" href="/admin/management.php">Admin Management</a>
+                             <ul class="submenu">
+                               <li class="nav-item">
+                                   <a class="nav-link" href="/admin/user_management.php">User Management</a>
+                               </li>
                         <!-- Add more sub-menu items as needed -->
-                    </ul>
-                </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="uitgifte.php">Uitgifte</a>
-                            </li>
-                            <li class="nav-item">
+                             </ul>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="uitgifte.php">Uitgifte</a>
+                          </li>
+                          <li class="nav-item">
                                 <a class="nav-link" href="logboek.php">Logboek</a>
-                            </li>
+                          </li>
                         <?php } elseif ($_SESSION["grouptype"] === "logboek") { ?>
                             <li class="nav-item">
                                 <a class="nav-link" href="logboek.php">Logboek</a>
