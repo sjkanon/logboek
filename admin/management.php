@@ -60,8 +60,8 @@ $result = mysqli_query($link, $sql);
         <tr>
             <th>ID</th>
             <th>Username</th>
-            <th>Email</th>
-            <th>Role</th>
+            <th>Password</th>
+            <th>Group Type</th>
             <th>Action</th>
         </tr>
         <?php
