@@ -38,6 +38,14 @@ session_start();
                             <li class="nav-item">
                                 <a class="nav-link" href="logboek.php">Logboek</a>
                             </li>
+                            <?php } elseif ($_SESSION["grouptype"] === "uitgifte") { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="logboek.php">Logboek</a>
+                            </li>
+                            <?php } elseif ($_SESSION["grouptype"] === "uluser") { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="logboek.php">Uitgifte</a>
+                            </li>
                         <?php } ?>
                         <li class="nav-item">
                             <a class="nav-link" href="logout.php">Logout</a>
