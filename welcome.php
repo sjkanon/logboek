@@ -29,11 +29,15 @@ session_start();
                             <a class="nav-link" href="welcome.php">Home</a>
                         </li>
                         <?php if ($_SESSION["grouptype"] === "admin") { ?>
-                            <a class="nav-link" href="/admin/management.php">Admin Management</a>
+                          <li class="nav-item">
+                    <a class="nav-link" href="/admin/management.php">Admin Management</a>
                     <ul class="submenu">
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/user_management.php">User Management</a>
                         </li>
+                        <!-- Add more sub-menu items as needed -->
+                    </ul>
+                </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="uitgifte.php">Uitgifte</a>
                             </li>
