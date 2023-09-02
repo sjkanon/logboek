@@ -32,10 +32,13 @@ session_start();
                         </li>
                         <?php if ($_SESSION["grouptype"] === "admin") { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="admin-dashboard.php">Admin Dashboard</a>
+                                <a class="nav-link" href="management.php">Admin Management</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="uitgifte.php">Uitgifte</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="logboek.php">Logboek</a>
                             </li>
                         <?php } elseif ($_SESSION["grouptype"] === "logboek") { ?>
                             <li class="nav-item">
