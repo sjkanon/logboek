@@ -82,6 +82,15 @@ if ($conn) {
             <a href="add_form.php" class="btn">Add Data</a>
         </div>
         <!-- View/Search Form -->
+<!-- Filter Form -->
+<form action="" method="get" class="filter-form">
+    <label for="filter_wie">Filter by Wie:</label>
+    <input type="text" id="filter_wie" name="filter_wie" value="<?php echo isset($_GET['filter_wie']) ? $_GET['filter_wie'] : ''; ?>">
+    
+    <!-- Repeat similar sections for other columns (Wat, Waar, Message) -->
+    
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
 
         <!-- Display Data -->
         <h2>Stored Data</h2>
