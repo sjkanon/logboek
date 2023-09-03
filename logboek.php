@@ -15,12 +15,12 @@ if (isset($_GET['filter_wie']) && $_GET['filter_wie'] !== '') {
     $filter_wie = $_GET['filter_wie'];
     $sql .= " AND Wie LIKE '%$filter_wie%'";
 }
-if (isset($_GET['filter_wie']) && $_GET['filter_wie'] !== '') {
-    $filter_wie = $_GET['filter_wie'];
+if (isset($_GET['filter_wat']) && $_GET['filter_wie'] !== '') {
+    $filter_wie = $_GET['filter_wat'];
     $sql .= " AND Wat LIKE '%$filter_wie%'";
 }
-if (isset($_GET['filter_wie']) && $_GET['filter_wie'] !== '') {
-    $filter_wie = $_GET['filter_wie'];
+if (isset($_GET['filter_waar']) && $_GET['filter_wie'] !== '') {
+    $filter_wie = $_GET['filter_waar'];
     $sql .= " AND Waar LIKE '%$filter_wie%'";
 }
 // Similar filter conditions for other columns
@@ -68,18 +68,65 @@ if ($conn) {
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">EventSystem</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <?php displayUserNavigation(); ?>
+                    <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="welcome.php">Home</a>
+                        </li>
+                        <?php if ($_SESSION["grouptype"] === "admin") { ?>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/admin/management.php">Admin Management</a>
+                             <ul class="submenu">
+                               <li class="nav-item">
+                                   <a class="nav-link" href="/admin/user_management.php">User Management</a>
+                               </li>
+                        <!-- Add more sub-menu items as needed -->
+                             </ul>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="uitgifte.php">Uitgifte</a>
+                          </li>
+                          <li class="nav-item">
+                                <a class="nav-link" href="logboek.php">Logboek</a>
+                          </li>
+                        <?php } elseif ($_SESSION["grouptype"] === "logboek") { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="logboek.php">Logboek</a>
+                            </li>
+                            <?php } elseif ($_SESSION["grouptype"] === "uitgifte") { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="uitgifte.php">Uitgifte</a>
+                            </li>
+                            <?php } elseif ($_SESSION["grouptype"] === "uluser") { ?>
+                              <li class="nav-item">
+                                <a class="nav-link" href="logboek.php">Logboek</a>
+                            </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="uitgifte.php">Uitgifte</a>
+                            </li>
+                        <?php } ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout.php">Logout</a>
+                        </li>
+                    <?php } else { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.php">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="register.php">Register</a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
-        </nav>
+    </nav>
     </header>
     <div class="container">
         <div class="add-user-button">
@@ -100,21 +147,7 @@ if ($conn) {
         <div class="form-group col-md-3">
             <label for="filter_waar">Filter Waar:</label>
             <input type="text" id="filter_waar" name="filter_waar" class="form-control" value="<?php echo isset($_GET['filter_waar']) ? $_GET['filter_waar'] : ''; ?>">
-        </div>
-        <div class="form-group col-md-3">
-            <label for="filter_message">Filter Message:</label>
-            <input type="text" id="filter_message" name="filter_message" class="form-control" value="<?php echo isset($_GET['filter_message']) ? $_GET['filter_message'] : ''; ?>">
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-3">
-            <label for="filter_created">Filter Created:</label>
-            <input type="text" id="filter_created" name="filter_created" class="form-control" value="<?php echo isset($_GET['filter_created']) ? $_GET['filter_created'] : ''; ?>">
-        </div>
-        <div class="form-group col-md-3">
-            <label for="filter_updated">Filter Updated:</label>
-            <input type="text" id="filter_updated" name="filter_updated" class="form-control" value="<?php echo isset($_GET['filter_updated']) ? $_GET['filter_updated'] : ''; ?>">
-        </div>
+     
         <!-- Add more filter input fields for other columns if needed -->
     </div>
     <button type="submit" class="btn btn-primary">Apply Filters</button>
