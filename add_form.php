@@ -22,12 +22,11 @@
                 <input type="text" id="add_wat" name="add_wat" required>
             </div>
             <div class="form-group">
-                <label for="add_wat">Group Type</label>
+                <label for="add_wat">Wat</label>
                 <select id="add_wat" name="add_wat" required>
-                    <option value="Admin">Admin</option>
-                    <option value="Logboek">Logboek User</option>
-                    <option value="uitgifte">Uitleen User</option>
-                    <option value="uluser">Uitleen en Logboek User</option>
+                    <option value="Gestrand">Gestrand</option>
+                    <option value="omgeslagen">Omgeslagen</option>
+                    <option value="Overig">Overig</option>
                     <!-- Add more options as needed -->
                 </select>
             </div>
