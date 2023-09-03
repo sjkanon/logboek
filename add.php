@@ -7,8 +7,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $waar = $_POST["add_waar"];
     $message = $_POST["add_message"];
 
-    // Create a connection to the database
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    define('DB_SERVER', 'localhost');
+    define('DB_USERNAME', 'logboek');
+    define('DB_PASSWORD', 'uYf6d6~94');
+    define('DB_NAME', 'kanonict_logboek');
+     
+    /* Attempt to connect to MySQL database */
+    $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
     // Check connection
     if ($conn->connect_error) {
