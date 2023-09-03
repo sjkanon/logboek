@@ -125,7 +125,7 @@ $result = mysqli_query($conn, $sql);
     </nav>
     </header>
     <div class="container">
-        <h1>Logboek</h1>
+        <h1>User management</h1>
 
         <!-- Add User Button -->
         <div class="add-user-button">
