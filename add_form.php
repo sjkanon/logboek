@@ -14,12 +14,12 @@
 
         <form method="post" action="add_user_process.php">
             <div class="form-group">
-                <label for="add_username">Username</label>
-                <input type="text" id="add_username" name="add_username" required>
+                <label for="add_wie">Wie</label>
+                <input type="text" id="add_wie" name="add_wie" required>
             </div>
             <div class="form-group">
-                <label for="add_password">Password</label>
-                <input type="password" id="add_password" name="add_password" required>
+                <label for="add_wat">Wat</label>
+                <input type="text" id="add_wat" name="add_wat" required>
             </div>
             <div class="form-group">
                 <label for="add_grouptype">Group Type</label>
