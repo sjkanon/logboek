@@ -82,13 +82,43 @@ session_start();
             </div>
     </nav>
     </header>
-    <div class="Container">
+    <div class="container">
     <!-- View/Search Form -->
     <h2>View/Search Data</h2>
     <form action="view.php" method="get">
         Search: <input type="text" name="search_query">
         <input type="submit" value="Search">
     </form>
+
+    <!-- Display Data -->
+    <h2>Stored Data</h2>
+    <?php
+    require_once "config.php";
+
+    // Create a connection to the database
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Retrieve all data from the table
+    $sql = "SELECT * FROM user_data";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        echo "<ul>";
+        while ($row = $result->fetch_assoc()) {
+            echo "<li>Name: " . $row["name"] . ", Email: " . $row["email"] . "</li>";
+        }
+        echo "</ul>";
+    } else {
+        echo "No data available.";
+    }
+
+    $conn->close();
+    ?>
     </div>
     <footer>
     <p>&copy; 2023 Sjoerd Kanon by AvhTech. All rights reserved.</p>
