@@ -104,9 +104,9 @@ if ($conn) {
             
             while ($row = $result->fetch_assoc()) {
                 echo '<tr>';
-                echo '<td>' . $row["wie"] . '</td>';
-                echo '<td>' . $row["wat"] . '</td>';
-                echo '<td>' . $row["waar"] . '</td>';
+                echo '<td>' . $row["Wie"] . '</td>';
+                echo '<td>' . $row["Wat"] . '</td>';
+                echo '<td>' . $row["Waar"] . '</td>';
                 echo '<td>' . $row["message"] . '</td>';
                 echo '<td>' . $row["created"] . '</td>';
                 echo '<td>' . $row["update_time"] . '</td>';
