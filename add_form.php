@@ -32,9 +32,10 @@
                     <input type="text" id="add_waar" name="add_waar" required>
                 </div>
                 <div class="form-group">
-                <label for="add_message">Bericht</label>
-                <input type="textarea" rows="8" id="add_message" name="add_message" required>
-            </div>
+    <label for="add_message">Bericht</label>
+    <textarea rows="8" id="add_message" name="add_message" required></textarea>
+</div>
+
             <button type="submit">Add User</button>
         </form>
 
