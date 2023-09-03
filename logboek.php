@@ -83,7 +83,9 @@ session_start();
     </nav>
     </header>
     <div class="container">
-    <h2><a href="add_form.php"><button>Add Data</button></a></h2>
+    <div class="add-user-button">
+            <a href="add_form.php" class="btn">Add Data</a>
+        </div>
     <!-- View/Search Form -->
     <h2>View/Search Data</h2>
     <form action="view.php" method="get">
