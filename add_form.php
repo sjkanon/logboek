@@ -12,7 +12,7 @@
     <div class="container">
         <h1>Add User</h1>
 
-        <form method="post" action="add_user_process.php">
+        <form method="post" action="add.php">
             <div class="form-group">
                 <label for="add_wie">Wie</label>
                 <input type="text" id="add_wie" name="add_wie" required>
@@ -22,8 +22,8 @@
                 <input type="text" id="add_wat" name="add_wat" required>
             </div>
             <div class="form-group">
-                <label for="add_grouptype">Group Type</label>
-                <select id="add_grouptype" name="add_grouptype" required>
+                <label for="add_wat">Group Type</label>
+                <select id="add_wat" name="add_wat" required>
                     <option value="Admin">Admin</option>
                     <option value="Logboek">Logboek User</option>
                     <option value="uitgifte">Uitleen User</option>
