@@ -50,36 +50,15 @@ if ($conn) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard - EventSystem</title>
-    <link rel="stylesheet" media="screen" href="styles/stylesheet.css" />
-    <link rel="stylesheet" media="screen" href="styles/styles.css" />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Bootstrap JS (optional, but required for responsive features) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- ... (Your existing head content) ... -->
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">EventSystem</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <?php displayUserNavigation(); ?>
-                </ul>
-            </div>
-        </nav>
+        <!-- ... (Your existing header content) ... -->
     </header>
     <div class="container">
         <div class="add-user-button">
-            <a href="add_form.php" class="btn">Add Data</a>
+            <!-- ... (Your existing button for adding data) ... -->
         </div>
         <!-- View/Search Form -->
         <h2>View/Search Data</h2>
@@ -92,18 +71,28 @@ if ($conn) {
         <h2>Stored Data</h2>
         <?php
         if ($result->num_rows > 0) {
-            echo "<ul>";
+            echo '<table class="table">';
+            echo '<thead><tr>';
+            echo '<th>Wie</th>';
+            echo '<th>Wat</th>';
+            echo '<th>Waar</th>';
+            echo '<th>Message</th>';
+            echo '<th>Created</th>';
+            echo '<th>Updated</th>';
+            echo '</tr></thead><tbody>';
+            
             while ($row = $result->fetch_assoc()) {
-                echo "<li>";
-                echo "Wie: " . $row["wie"] . ", ";
-                echo "Wat: " . $row["wat"] . ", ";
-                echo "Waar: " . $row["waar"] . ", ";
-                echo "Message: " . $row["message"] . ", ";
-                echo "Created: " . $row["created"] . ", ";
-                echo "Updated: " . $row["update_time"];
-                echo "</li>";
+                echo '<tr>';
+                echo '<td>' . $row["wie"] . '</td>';
+                echo '<td>' . $row["wat"] . '</td>';
+                echo '<td>' . $row["waar"] . '</td>';
+                echo '<td>' . $row["message"] . '</td>';
+                echo '<td>' . $row["created"] . '</td>';
+                echo '<td>' . $row["update_time"] . '</td>';
+                echo '</tr>';
             }
-            echo "</ul>";
+
+            echo '</tbody></table>';
         } else {
             echo "No data available.";
         }
