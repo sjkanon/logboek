@@ -141,13 +141,18 @@ if ($conn) {
         <!-- Display Data -->
         <h2>Logboek Data</h2>
         <table class="table">
-            <thead>
-                <tr>
-                    <?php foreach ($sort_columns as $column) { ?>
-                    <th><a href="?sort=<?php echo $column; ?>_asc"><?php echo ucfirst($column); ?> &#9650;</a></th>
-                    <?php } ?>
-                </tr>
-            </thead>
+        <thead>
+    <tr>
+        <th><a href="?sort=wie_asc">Wie &#9650;</a> <a href="?sort=wie_desc">&#9660;</a></th>
+        <th><a href="?sort=wat_asc">Wat &#9650;</a> <a href="?sort=wat_desc">&#9660;</a></th>
+        <th><a href="?sort=waar_asc">Waar &#9650;</a> <a href="?sort=waar_desc">&#9660;</a></th>
+        <th><a href="?sort=message_asc">Message &#9650;</a> <a href="?sort=message_desc">&#9660;</a></th>
+        <th><a href="?sort=created_asc">Created &#9650;</a> <a href="?sort=created_desc">&#9660;</a></th>
+        <th><a href="?sort=update_time_asc">Updated &#9650;</a> <a href="?sort=update_time_desc">&#9660;</a></th>
+    </tr>
+</thead>
+
+
             <tbody>
                 <?php
                 if ($result->num_rows > 0) {
