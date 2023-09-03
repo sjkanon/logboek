@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group">
                 <label for="add_message">Bericht</label>
-                <input type="text" size="255" id="add_message" name="add_message" required>
+                <input type="textarea" rows="4" id="add_message" name="add_message" required>
             </div>
             <button type="submit">Add User</button>
         </form>
