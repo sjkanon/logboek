@@ -29,11 +29,8 @@ function displayUserNavigation() {
     }
 }
 
-
 session_start();
 require_once "config.php"; // Include config.php to establish the database connection
-
-// ...
 
 // Retrieve data from the "logboek" table
 $sql = "SELECT * FROM logboek";
@@ -48,6 +45,7 @@ if ($conn) {
 } else {
     echo "Database connection error.";
 }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
