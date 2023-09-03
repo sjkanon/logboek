@@ -1,4 +1,8 @@
 <?php
+session_start();
+require_once "config.php"; // Include config.php to establish the database connection
+
+
 // Function to display user navigation based on session status and group type
 function displayUserNavigation() {
     if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
@@ -28,9 +32,6 @@ function displayUserNavigation() {
         echo '<li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>';
     }
 }
-
-session_start();
-require_once "config.php"; // Include config.php to establish the database connection
 
 // Retrieve data from the "logboek" table
 $sql = "SELECT * FROM logboek";
