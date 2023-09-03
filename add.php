@@ -4,6 +4,9 @@ ini_set('display_errors', 1);
 
 require_once "config.php";
 
+// Debug: Display connection details
+echo "Server: $servername, Username: $username, Password: $password, Database: $dbname";
+
 // Create a connection to the database
 $conn = new mysqli($servername, $username, $password, $dbname);
 
