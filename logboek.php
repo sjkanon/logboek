@@ -67,7 +67,6 @@ if ($conn) {
             <input type="submit" value="Search">
         </form>
 
-        <!-- Display Data -->
         <h2>Stored Data</h2>
         <?php
         if ($result->num_rows > 0) {
