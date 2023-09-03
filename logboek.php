@@ -82,11 +82,6 @@ if ($conn) {
             <a href="add_form.php" class="btn">Add Data</a>
         </div>
         <!-- View/Search Form -->
-        <h2>View/Search Data</h2>
-        <form action="view.php" method="get">
-            Search: <input type="text" name="search_query">
-            <input type="submit" value="Search">
-        </form>
 
         <!-- Display Data -->
         <h2>Stored Data</h2>
