@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Insert data into the table
     $insertsql = "INSERT INTO logboek (wie, wat, waar, message) VALUES (?, ?, ?)";
     $insert_stmt = mysqli_prepare($link, $insert_sql);
-    mysqli_stmt_bind_param($insert_stmt, "sss", $add_wie, $add_wat, $add_waar, $add_message);
+    mysqli_stmt_bind_param($insert_stmt, $add_wie, $add_wat, $add_waar, $add_message);
     mysqli_stmt_execute($insert_stmt);
     mysqli_stmt_close($insert_stmt);
    // Redirect back to user list or do other actions
