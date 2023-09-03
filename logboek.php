@@ -96,13 +96,13 @@ session_start();
     require_once "config.php";
 
     // Retrieve all data from the table
-    $sql = "SELECT * FROM user_data";
+    $sql = "SELECT * FROM logboek";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         echo "<ul>";
         while ($row = $result->fetch_assoc()) {
-            echo "<li>Name: " . $row["name"] . ", Email: " . $row["email"] . "</li>";
+            echo "<li>Wie: " . $row["Wie"] . ", Wat: " . $row["wat"] . "</li>";
         }
         echo "</ul>";
     } else {
