@@ -11,19 +11,13 @@ function displayUserNavigation() {
 $sql = "SELECT * FROM logboek WHERE 1";
 
 // Filter criteria
-if (isset($_GET['filter_wie']) && $_GET['filter_wie'] !== '') {
-    $filter_wie = $_GET['filter_wie'];
-    $sql .= " AND Wie LIKE '%$filter_wie%'";
+$filters = array("wie", "wat", "waar", "message", "created", "update_time");
+foreach ($filters as $filter) {
+    if (isset($_GET["filter_$filter"]) && $_GET["filter_$filter"] !== '') {
+        $filter_value = $_GET["filter_$filter"];
+        $sql .= " AND $filter LIKE '%$filter_value%'";
+    }
 }
-if (isset($_GET['filter_wat']) && $_GET['filter_wie'] !== '') {
-    $filter_wie = $_GET['filter_wat'];
-    $sql .= " AND Wat LIKE '%$filter_wie%'";
-}
-if (isset($_GET['filter_waar']) && $_GET['filter_wie'] !== '') {
-    $filter_wie = $_GET['filter_waar'];
-    $sql .= " AND Waar LIKE '%$filter_wie%'";
-}
-// Similar filter conditions for other columns
 
 // Sorting
 $sort_columns = array("wie", "wat", "waar", "message", "created", "update_time");
@@ -68,8 +62,7 @@ if ($conn) {
 </head>
 <body>
     <header>
-    <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">EventSystem</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,92 +70,35 @@ if ($conn) {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) { ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="welcome.php">Home</a>
-                        </li>
-                        <?php if ($_SESSION["grouptype"] === "admin") { ?>
-                          <li class="nav-item">
-                            <a class="nav-link" href="/admin/management.php">Admin Management</a>
-                             <ul class="submenu">
-                               <li class="nav-item">
-                                   <a class="nav-link" href="/admin/user_management.php">User Management</a>
-                               </li>
-                        <!-- Add more sub-menu items as needed -->
-                             </ul>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="uitgifte.php">Uitgifte</a>
-                          </li>
-                          <li class="nav-item">
-                                <a class="nav-link" href="logboek.php">Logboek</a>
-                          </li>
-                        <?php } elseif ($_SESSION["grouptype"] === "logboek") { ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="logboek.php">Logboek</a>
-                            </li>
-                            <?php } elseif ($_SESSION["grouptype"] === "uitgifte") { ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="uitgifte.php">Uitgifte</a>
-                            </li>
-                            <?php } elseif ($_SESSION["grouptype"] === "uluser") { ?>
-                              <li class="nav-item">
-                                <a class="nav-link" href="logboek.php">Logboek</a>
-                            </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="uitgifte.php">Uitgifte</a>
-                            </li>
-                        <?php } ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="logout.php">Logout</a>
-                        </li>
-                    <?php } else { ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="register.php">Register</a>
-                        </li>
-                    <?php } ?>
+                    <?php displayUserNavigation(); ?>
                 </ul>
             </div>
-    </nav>
+        </nav>
     </header>
     <div class="container">
         <div class="add-user-button">
             <a href="add_form.php" class="btn">Add Data</a>
         </div>
         <!-- View/Search Form -->
-        <!-- View/Search Form -->
-<form method="GET">
-    <div class="form-row">
-        <div class="form-group col-md-3">
-            <label for="filter_wie">Filter Wie:</label>
-            <input type="text" id="filter_wie" name="filter_wie" class="form-control" value="<?php echo isset($_GET['filter_wie']) ? $_GET['filter_wie'] : ''; ?>">
-        </div>
-        <div class="form-group col-md-3">
-            <label for="filter_wat">Filter Wat:</label>
-            <input type="text" id="filter_wat" name="filter_wat" class="form-control" value="<?php echo isset($_GET['filter_wat']) ? $_GET['filter_wat'] : ''; ?>">
-        </div>
-        <div class="form-group col-md-3">
-            <label for="filter_waar">Filter Waar:</label>
-            <input type="text" id="filter_waar" name="filter_waar" class="form-control" value="<?php echo isset($_GET['filter_waar']) ? $_GET['filter_waar'] : ''; ?>">
-     
-        <!-- Add more filter input fields for other columns if needed -->
-    </div>
-    <button type="submit" class="btn btn-primary">Apply Filters</button>
-</form>
+        <form method="GET">
+            <div class="form-row">
+                <?php foreach ($filters as $filter) { ?>
+                <div class="form-group col-md-3">
+                    <label for="filter_<?php echo $filter; ?>">Filter <?php echo ucfirst($filter); ?>:</label>
+                    <input type="text" id="filter_<?php echo $filter; ?>" name="filter_<?php echo $filter; ?>" class="form-control" value="<?php echo isset($_GET["filter_$filter"]) ? $_GET["filter_$filter"] : ''; ?>">
+                </div>
+                <?php } ?>
+            </div>
+            <button type="submit" class="btn btn-primary">Apply Filters</button>
+        </form>
         <!-- Display Data -->
         <h2>Stored Data</h2>
         <table class="table">
             <thead>
                 <tr>
-                    <th><a href="?sort=wie_asc">Wie &#9650;</a></th>
-                    <th><a href="?sort=wat_asc">Wat &#9650;</a></th>
-                    <th><a href="?sort=waar_asc">Waar &#9650;</a></th>
-                    <th><a href="?sort=message_asc">Message &#9650;</a></th>
-                    <th><a href="?sort=created_asc">Created &#9650;</a></th>
-                    <th><a href="?sort=update_time_asc">Updated &#9650;</a></th>
+                    <?php foreach ($sort_columns as $column) { ?>
+                    <th><a href="?sort=<?php echo $column; ?>_asc"><?php echo ucfirst($column); ?> &#9650;</a></th>
+                    <?php } ?>
                 </tr>
             </thead>
             <tbody>
@@ -170,16 +106,13 @@ if ($conn) {
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo '<tr>';
-                        echo '<td>' . $row["Wie"] . '</td>';
-                        echo '<td>' . $row["Wat"] . '</td>';
-                        echo '<td>' . $row["Waar"] . '</td>';
-                        echo '<td>' . $row["message"] . '</td>';
-                        echo '<td>' . $row["created"] . '</td>';
-                        echo '<td>' . $row["update_time"] . '</td>';
+                        foreach ($sort_columns as $column) {
+                            echo '<td>' . $row[$column] . '</td>';
+                        }
                         echo '</tr>';
                     }
                 } else {
-                    echo '<tr><td colspan="6">No data available.</td></tr>';
+                    echo '<tr><td colspan="' . count($sort_columns) . '">No data available.</td></tr>';
                 }
                 ?>
             </tbody>
