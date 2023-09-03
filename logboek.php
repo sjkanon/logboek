@@ -1,11 +1,4 @@
 <?php
-session_start();
-require_once "config.php";
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-
 // Function to display user navigation based on session status and group type
 function displayUserNavigation() {
     if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
@@ -36,11 +29,25 @@ function displayUserNavigation() {
     }
 }
 
+
+session_start();
+require_once "config.php"; // Include config.php to establish the database connection
+
+// ...
+
 // Retrieve data from the "logboek" table
 $sql = "SELECT * FROM logboek";
-$result = $conn->query($sql);
-?>
 
+// Check if the connection is valid before querying
+if ($conn) {
+    $result = $conn->query($sql);
+
+    // Rest of your code for displaying data
+
+    $conn->close(); // Close the database connection when done
+} else {
+    echo "Database connection error.";
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
