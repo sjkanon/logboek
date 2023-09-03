@@ -11,7 +11,7 @@ function displayUserNavigation() {
 $sql = "SELECT * FROM logboek WHERE 1";
 
 // Filter criteria
-$filters = array("wie", "wat", "waar", "message", "created", "update_time");
+$filters = array("Wie", "Wat", "Waar", "message", "created", "update_time");
 foreach ($filters as $filter) {
     if (isset($_GET["filter_$filter"]) && $_GET["filter_$filter"] !== '') {
         $filter_value = $_GET["filter_$filter"];
@@ -20,7 +20,7 @@ foreach ($filters as $filter) {
 }
 
 // Sorting
-$sort_columns = array("wie", "wat", "waar", "message", "created", "update_time");
+$sort_columns = array("Wie", "Wat", "Waar", "message", "created", "update_time");
 $sort_order = isset($_GET['sort']) ? $_GET['sort'] : '';
 
 if ($sort_order) {
