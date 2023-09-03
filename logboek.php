@@ -15,6 +15,14 @@ if (isset($_GET['filter_wie']) && $_GET['filter_wie'] !== '') {
     $filter_wie = $_GET['filter_wie'];
     $sql .= " AND Wie LIKE '%$filter_wie%'";
 }
+if (isset($_GET['filter_wie']) && $_GET['filter_wie'] !== '') {
+    $filter_wie = $_GET['filter_wie'];
+    $sql .= " AND Wat LIKE '%$filter_wie%'";
+}
+if (isset($_GET['filter_wie']) && $_GET['filter_wie'] !== '') {
+    $filter_wie = $_GET['filter_wie'];
+    $sql .= " AND Waar LIKE '%$filter_wie%'";
+}
 // Similar filter conditions for other columns
 
 // Sorting
@@ -78,14 +86,39 @@ if ($conn) {
             <a href="add_form.php" class="btn">Add Data</a>
         </div>
         <!-- View/Search Form -->
-        <form method="GET">
-            <div class="form-group">
-                <label for="filter_wie">Filter Wie:</label>
-                <input type="text" id="filter_wie" name="filter_wie" value="<?php echo isset($_GET['filter_wie']) ? $_GET['filter_wie'] : ''; ?>">
-            </div>
-            <!-- Similar filter input fields for other columns -->
-            <button type="submit" class="btn btn-primary">Apply Filters</button>
-        </form>
+        <!-- View/Search Form -->
+<form method="GET">
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="filter_wie">Filter Wie:</label>
+            <input type="text" id="filter_wie" name="filter_wie" class="form-control" value="<?php echo isset($_GET['filter_wie']) ? $_GET['filter_wie'] : ''; ?>">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="filter_wat">Filter Wat:</label>
+            <input type="text" id="filter_wat" name="filter_wat" class="form-control" value="<?php echo isset($_GET['filter_wat']) ? $_GET['filter_wat'] : ''; ?>">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="filter_waar">Filter Waar:</label>
+            <input type="text" id="filter_waar" name="filter_waar" class="form-control" value="<?php echo isset($_GET['filter_waar']) ? $_GET['filter_waar'] : ''; ?>">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="filter_message">Filter Message:</label>
+            <input type="text" id="filter_message" name="filter_message" class="form-control" value="<?php echo isset($_GET['filter_message']) ? $_GET['filter_message'] : ''; ?>">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="filter_created">Filter Created:</label>
+            <input type="text" id="filter_created" name="filter_created" class="form-control" value="<?php echo isset($_GET['filter_created']) ? $_GET['filter_created'] : ''; ?>">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="filter_updated">Filter Updated:</label>
+            <input type="text" id="filter_updated" name="filter_updated" class="form-control" value="<?php echo isset($_GET['filter_updated']) ? $_GET['filter_updated'] : ''; ?>">
+        </div>
+        <!-- Add more filter input fields for other columns if needed -->
+    </div>
+    <button type="submit" class="btn btn-primary">Apply Filters</button>
+</form>
         <!-- Display Data -->
         <h2>Stored Data</h2>
         <table class="table">
