@@ -139,7 +139,7 @@ if ($conn) {
             <button type="submit" class="btn btn-primary">Apply Filters</button>
         </form>
         <!-- Display Data -->
-        <h2>Stored Data</h2>
+        <h2>Logboek Data</h2>
         <table class="table">
             <thead>
                 <tr>
