@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Execute the statement
         if ($insert_sql->execute()) {
             echo "Data added successfully!";
+            header("Location: logboek.php");
         } else {
             echo "Error: " . $insert_sql->error;
         }
