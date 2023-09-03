@@ -16,6 +16,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <div class="container">
     <h1>Add Data</h1>
 
     <form action="add.php" method="post">
@@ -28,5 +29,6 @@
 
     <br>
     <a href="index.php">Back to Home</a>
+    </div>
 </body>
 </html>
