@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Prepare the SQL statement
-    $insert_sql = $conn->prepare("INSERT INTO user_data (wie, wat, waar, message) VALUES (?, ?, ?, ?)");
+    $insert_sql = $conn->prepare("INSERT INTO logboek (wie, wat, waar, message) VALUES (?, ?, ?, ?)");
 
     if ($insert_sql) {
         // Bind parameters to the prepared statement
