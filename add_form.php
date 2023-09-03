@@ -28,9 +28,10 @@
                 </select>
                 </div>
                 <div class="form-group">
-                <label for="add_waar">Waar</label>
-                <input type="text" id="add_wat" name="add_wat" required>
-                <button type="submit">Add User</button>
+                    <label for="add_waar">Waar</label>
+                    <input type="text" id="add_waar" name="add_waar" required>
+                </div>
+            <button type="submit">Add User</button>
         </form>
 
         <div class="back-button">
