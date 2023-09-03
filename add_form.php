@@ -1,34 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Management - EventSystem</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User | EventSystem</title>
     <link rel="stylesheet" media="screen" href="../styles/stylesheet.css" />
     <link rel="stylesheet" media="screen" href="../styles/styles.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-<!-- Bootstrap JS (optional, but required for responsive features) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="container">
-    <h1>Add Data</h1>
+        <h1>Add User</h1>
 
-    <form action="add.php" method="post">
-        Wie: <input type="text" name="wie"><br>
-        Wat: <input type="text" name="wat"><br>
-        Waar: <input type="text" name="waar"><br>
-        Message: <textarea name="message"></textarea><br>
-        <input type="submit" value="Add">
-    </form>
+        <form method="post" action="add_user_process.php">
+            <div class="form-group">
+                <label for="add_username">Username</label>
+                <input type="text" id="add_username" name="add_username" required>
+            </div>
+            <div class="form-group">
+                <label for="add_password">Password</label>
+                <input type="password" id="add_password" name="add_password" required>
+            </div>
+            <div class="form-group">
+                <label for="add_grouptype">Group Type</label>
+                <select id="add_grouptype" name="add_grouptype" required>
+                    <option value="Admin">Admin</option>
+                    <option value="Logboek">Logboek User</option>
+                    <option value="uitgifte">Uitleen User</option>
+                    <option value="uluser">Uitleen en Logboek User</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <button type="submit">Add User</button>
+        </form>
 
-    <br>
-    <a href="index.php">Back to Home</a>
+        <div class="back-button">
+            <a href="user_management.php">Back to User List</a>
+        </div>
     </div>
 </body>
 </html>
