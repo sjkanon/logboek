@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $sql = "INSERT INTO logboek (wie, wat, waar, message) VALUES ('$wie', '$wat', '$waar', '$message')";
 
     if ($conn->query($sql) === TRUE) {
-        header("Location: index.php"); // Redirect back to index page
+        header("Location: logboek.php"); // Redirect back to index page
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
