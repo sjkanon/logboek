@@ -102,7 +102,14 @@ session_start();
     if ($result->num_rows > 0) {
         echo "<ul>";
         while ($row = $result->fetch_assoc()) {
-            echo "<li>Wie: " . $row["Wie"] . ", Wat: " . $row["wat"] . ", Waar: " . $row["Waar"] . ", message: " . $row["message"] . ", created: " . $row["created"] ", updated: " . $row["update_time"]  "</li>";
+            echo "<li>";
+            echo "Wie: " . $row["wie"] . ", ";
+            echo "Wat: " . $row["wat"] . ", ";
+            echo "Waar: " . $row["waar"] . ", ";
+            echo "Message: " . $row["message"] . ", ";
+            echo "Created: " . $row["created"] . ", ";
+            echo "Updated: " . $row["update_time"];
+            echo "</li>";
         }
         echo "</ul>";
     } else {
