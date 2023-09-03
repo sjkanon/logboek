@@ -2,39 +2,35 @@
 session_start();
 require_once "config.php"; // Include config.php to establish the database connection
 
-
 // Function to display user navigation based on session status and group type
 function displayUserNavigation() {
-    if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-        // Display user-specific navigation
-        if ($_SESSION["grouptype"] === "admin") {
-            echo '<li class="nav-item">';
-            echo '<a class="nav-link" href="/admin/management.php">Admin Management</a>';
-            echo '<ul class="submenu">';
-            echo '<li class="nav-item"><a class="nav-link" href="/admin/user_management.php">User Management</a></li>';
-            // Add more sub-menu items as needed
-            echo '</ul>';
-            echo '</li>';
-            echo '<li class="nav-item"><a class="nav-link" href="uitgifte.php">Uitgifte</a></li>';
-            echo '<li class="nav-item"><a class="nav-link" href="logboek.php">Logboek</a></li>';
-        } elseif ($_SESSION["grouptype"] === "logboek") {
-            echo '<li class="nav-item"><a class="nav-link" href="logboek.php">Logboek</a></li>';
-        } elseif ($_SESSION["grouptype"] === "uitgifte") {
-            echo '<li class="nav-item"><a class="nav-link" href="uitgifte.php">Uitgifte</a></li>';
-        } elseif ($_SESSION["grouptype"] === "uluser") {
-            echo '<li class="nav-item"><a class="nav-link" href="logboek.php">Logboek</a></li>';
-            echo '<li class="nav-item"><a class="nav-link" href="uitgifte.php">Uitgifte</a></li>';
-        }
-        echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
-    } else {
-        // Display navigation for guests
-        echo '<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>';
-        echo '<li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>';
-    }
+    // ... (unchanged)
 }
 
 // Retrieve data from the "logboek" table
-$sql = "SELECT * FROM logboek";
+$sql = "SELECT * FROM logboek WHERE 1";
+
+// Filter criteria
+if (isset($_GET['filter_wie']) && $_GET['filter_wie'] !== '') {
+    $filter_wie = $_GET['filter_wie'];
+    $sql .= " AND Wie LIKE '%$filter_wie%'";
+}
+// Similar filter conditions for other columns
+
+// Sorting
+$sort_columns = array("wie", "wat", "waar", "message", "created", "update_time");
+$sort_order = isset($_GET['sort']) ? $_GET['sort'] : '';
+
+if ($sort_order) {
+    list($sort_column, $sort_direction) = explode('_', $sort_order);
+    
+    if (in_array($sort_column, $sort_columns)) {
+        $sql .= " ORDER BY $sort_column";
+        if ($sort_direction === 'asc' || $sort_direction === 'desc') {
+            $sql .= " $sort_direction";
+        }
+    }
+}
 
 // Check if the connection is valid before querying
 if ($conn) {
@@ -82,46 +78,46 @@ if ($conn) {
             <a href="add_form.php" class="btn">Add Data</a>
         </div>
         <!-- View/Search Form -->
-<!-- Filter Form -->
-<form action="" method="get" class="filter-form">
-    <label for="filter_wie">Filter by Wie:</label>
-    <input type="text" id="filter_wie" name="filter_wie" value="<?php echo isset($_GET['filter_wie']) ? $_GET['filter_wie'] : ''; ?>">
-    
-    <!-- Repeat similar sections for other columns (Wat, Waar, Message) -->
-    
-    <button type="submit" class="btn btn-primary">Filter</button>
-</form>
-
+        <form method="GET">
+            <div class="form-group">
+                <label for="filter_wie">Filter Wie:</label>
+                <input type="text" id="filter_wie" name="filter_wie" value="<?php echo isset($_GET['filter_wie']) ? $_GET['filter_wie'] : ''; ?>">
+            </div>
+            <!-- Similar filter input fields for other columns -->
+            <button type="submit" class="btn btn-primary">Apply Filters</button>
+        </form>
         <!-- Display Data -->
         <h2>Stored Data</h2>
-        <?php
-        if ($result->num_rows > 0) {
-            echo '<table class="table">';
-            echo '<thead><tr>';
-            echo '<th>Wie</th>';
-            echo '<th>Wat</th>';
-            echo '<th>Waar</th>';
-            echo '<th>Message</th>';
-            echo '<th>Created</th>';
-            echo '<th>Updated</th>';
-            echo '</tr></thead><tbody>';
-            
-            while ($row = $result->fetch_assoc()) {
-                echo '<tr>';
-                echo '<td>' . $row["Wie"] . '</td>';
-                echo '<td>' . $row["Wat"] . '</td>';
-                echo '<td>' . $row["Waar"] . '</td>';
-                echo '<td>' . $row["message"] . '</td>';
-                echo '<td>' . $row["created"] . '</td>';
-                echo '<td>' . $row["update_time"] . '</td>';
-                echo '</tr>';
-            }
-
-            echo '</tbody></table>';
-        } else {
-            echo "No data available.";
-        }
-        ?>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><a href="?sort=wie_asc">Wie &#9650;</a></th>
+                    <th><a href="?sort=wat_asc">Wat &#9650;</a></th>
+                    <th><a href="?sort=waar_asc">Waar &#9650;</a></th>
+                    <th><a href="?sort=message_asc">Message &#9650;</a></th>
+                    <th><a href="?sort=created_asc">Created &#9650;</a></th>
+                    <th><a href="?sort=update_time_asc">Updated &#9650;</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<tr>';
+                        echo '<td>' . $row["Wie"] . '</td>';
+                        echo '<td>' . $row["Wat"] . '</td>';
+                        echo '<td>' . $row["Waar"] . '</td>';
+                        echo '<td>' . $row["message"] . '</td>';
+                        echo '<td>' . $row["created"] . '</td>';
+                        echo '<td>' . $row["update_time"] . '</td>';
+                        echo '</tr>';
+                    }
+                } else {
+                    echo '<tr><td colspan="6">No data available.</td></tr>';
+                }
+                ?>
+            </tbody>
+        </table>
     </div>
     <footer>
         <p>&copy; 2023 Sjoerd Kanon by AvhTech. All rights reserved.</p>
