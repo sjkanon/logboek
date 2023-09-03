@@ -122,6 +122,7 @@ if ($conn) {
                 </ul>
             </div>
     </nav>
+    </header>
     <div class="container">
         <div class="add-user-button">
             <a href="add_form.php" class="btn">Add Data</a>
