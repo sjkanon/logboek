@@ -125,7 +125,7 @@ $result = mysqli_query($link, $sql);
     </nav>
     </header>
     <div class="container">
-        <h1>User Management</h1>
+        <h1>Logboek</h1>
 
         <!-- Add User Button -->
         <div class="add-user-button">
@@ -143,30 +143,12 @@ $result = mysqli_query($link, $sql);
             </select>
         </div>
 
-        <!-- User List -->
-        <form method="post" action="">
-            <table class="user-table">
-                <tr>
-                    <th>ID</th>
-                    <th>Username</th>
-                    <th>Group Type</th>
-                    <th>Action</th>
-                </tr>
-                <?php
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                    echo "<td>{$row['id']}</td>";
-                    echo "<td>{$row['username']}</td>";
-                    echo "<td>{$row['grouptype']}</td>";
-                    echo "<td>
-                            <a href='edit_user.php?edit_id={$row['id']}' class='btn'>Edit</a>
-                            <a href='user_management.php?delete_id={$row['id']}' class='btn' onclick='return confirm(\"Are you sure you want to delete this user?\")'>Delete</a>
-                          </td>";
-                    echo "</tr>";
-                }
-                ?>
-            </table>
-        </form>
+        <!-- View/Search Form -->
+    <h2>View/Search Data</h2>
+    <form action="view.php" method="get">
+        Search: <input type="text" name="search_query">
+        <input type="submit" value="Search">
+    </form>
     </div>
     </div>
 
