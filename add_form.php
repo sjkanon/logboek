@@ -46,8 +46,8 @@
                 </div>
 
                 <div class="form-group">
-    <label for="add_message">Bericht</label>
-    <textarea rows="8" id="add_message" name="add_message" required></textarea>
+    <label for="add_statusmessage">Status Bericht</label>
+    <textarea rows="8" id="addstatus_message" name="addstatus_message" required></textarea>
 </div>
             <button type="submit">Add Log</button>
         </form>
