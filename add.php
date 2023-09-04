@@ -1,6 +1,7 @@
 <?php
 require_once "config.php";
-
+session_start();
+$gebruiker = $_SESSION["username"];
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $wie = $_POST["add_wie"];
     $wat = $_POST["add_wat"];
@@ -21,11 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Prepare the SQL statement
-    $insert_sql = $conn->prepare("INSERT INTO logboek (wie, wat, waar, message) VALUES (?, ?, ?, ?)");
+    $insert_sql = $conn->prepare("INSERT INTO logboek (wie, wat, waar, message, gebruiker) VALUES (?, ?, ?, ?, ?)");
 
     if ($insert_sql) {
         // Bind parameters to the prepared statement
-        $insert_sql->bind_param("ssss", $wie, $wat, $waar, $message);
+        $insert_sql->bind_param("ssss", $wie, $wat, $waar, $message, $gebruiker);
 
         // Execute the statement
         if ($insert_sql->execute()) {
