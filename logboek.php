@@ -127,17 +127,24 @@ if ($conn) {
             <a href="add_form.php" class="btn">Add Data</a>
         </div>
         <!-- View/Search Form -->
-        <form method="GET">
-            <div class="form-row">
-                <?php foreach ($filters as $filter) { ?>
+        <div class="form-row">
+    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#filterCollapse">
+        Show Filters
+    </button>
+</div>
+<div id="filterCollapse" class="collapse">
+    <form method="GET">
+        <div class="form-row">
+            <?php foreach ($filters as $filter) { ?>
                 <div class="form-group col-md-3">
                     <label for="filter_<?php echo $filter; ?>">Filter <?php echo ucfirst($filter); ?>:</label>
                     <input type="text" id="filter_<?php echo $filter; ?>" name="filter_<?php echo $filter; ?>" class="form-control" value="<?php echo isset($_GET["filter_$filter"]) ? $_GET["filter_$filter"] : ''; ?>">
                 </div>
-                <?php } ?>
-            </div>
-            <button type="submit" class="btn btn-primary">Apply Filters</button>
-        </form>
+            <?php } ?>
+        </div>
+        <button type="submit" class="btn btn-primary">Apply Filters</button>
+    </form>
+</div>
         <!-- Display Data -->
         <h2>Logboek Data</h2>
         <table class="table">
