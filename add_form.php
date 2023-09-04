@@ -35,7 +35,15 @@
     <label for="add_message">Bericht</label>
     <textarea rows="8" id="add_message" name="add_message" required></textarea>
 </div>
-
+<div class="form-group">
+                <label for="add_status">Wat</label>
+                <select id="add_status" name="add_status" required>
+                    <option value="Gestrand">Gestrand</option>
+                    <option value="omgeslagen">Omgeslagen</option>
+                    <option value="Overig">Overig</option>
+                    <!-- Add more options as needed -->
+                </select>
+                </div>
             <button type="submit">Add Log</button>
         </form>
 
