@@ -132,7 +132,7 @@ if ($conn) {
         <div class="col-md-6">
             <!-- View/Search Form -->
             <div class="form-row">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#filterCollapse">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#filterCollapse">
                     Show Filters
                 </button>
             </div>
