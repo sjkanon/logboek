@@ -36,11 +36,11 @@
     <textarea rows="8" id="add_message" name="add_message" required></textarea>
 </div>
 <div class="form-group">
-                <label for="add_status">Wat</label>
+                <label for="add_status">Status</label>
                 <select id="add_status" name="add_status" required>
-                    <option value="Gestrand">Gestrand</option>
-                    <option value="omgeslagen">Omgeslagen</option>
-                    <option value="Overig">Overig</option>
+                    <option value="In Behandeling">In Behandeling</option>
+                    <option value="Opgelost">Opgelost</option>
+                    <option value="Actie vereist">Actie Vereist</option>
                     <!-- Add more options as needed -->
                 </select>
                 </div>
