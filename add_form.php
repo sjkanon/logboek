@@ -44,7 +44,15 @@
                     <!-- Add more options as needed -->
                 </select>
                 </div>
-
+                <div class="form-group">
+                <label for="add_status">Status</label>
+                <select id="add_status" name="add_status" required>
+                    <option value="In Behandeling">In Behandeling</option>
+                    <option value="Opgelost">Opgelost</option>
+                    <option value="Actie vereist">Actie Vereist</option>
+                    <!-- Add more options as needed -->
+                </select>
+                </div>
                 <div class="form-group">
     <label for="add_statusmessage">Status Bericht</label>
     <textarea rows="8" id="addstatus_message" name="addstatus_message" size="50" required></textarea>
