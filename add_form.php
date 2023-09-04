@@ -45,13 +45,8 @@
                 </select>
                 </div>
                 <div class="form-group">
-                <label for="add_status">Status</label>
-                <select id="add_status" name="add_status" required>
-                    <option value="In Behandeling">In Behandeling</option>
-                    <option value="Opgelost">Opgelost</option>
-                    <option value="Actie vereist">Actie Vereist</option>
-                    <!-- Add more options as needed -->
-                </select>
+                    <label for="add_melder">Melder</label>
+                    <input type="text" id="add_melder" name="add_melder" size="50" required>
                 </div>
                 <div class="form-group">
     <label for="add_statusmessage">Status Bericht</label>
