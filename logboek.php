@@ -153,11 +153,11 @@ if ($conn) {
     </div>
         <!-- Display Data -->
         <h2>Logboek Data</h2>
-        <table class="table">
+        <table class="table" style="table-layout: auto;">
     <thead>
         <tr>
             <th><a href="?sort=created_asc">Created &#9650;</a> <a href="?sort=created_desc">&#9660;</a></th>
-            <th><a href="?sort=created_asc">Gebruiker &#9650;</a> <a href="?sort=created_desc">&#9660;</a></th>
+            <th><a href="?sort=gebruiker_asc">Gebruiker &#9650;</a> <a href="?sort=gebruiker_desc">&#9660;</a></th>
             <th><a href="?sort=wie_asc">Wie &#9650;</a> <a href="?sort=wie_desc">&#9660;</a></th>
             <th><a href="?sort=wat_asc">Wat &#9650;</a> <a href="?sort=wat_desc">&#9660;</a></th>
             <th><a href="?sort=waar_asc">Waar &#9650;</a> <a href="?sort=waar_desc">&#9660;</a></th>
@@ -170,7 +170,7 @@ if ($conn) {
             while ($row = $result->fetch_assoc()) {
                 echo '<tr>';
                 foreach ($sort_columns as $column) {
-                    echo '<td style="white-space: nowrap;">' . $row[$column] . '</td>';
+                    echo '<td>' . $row[$column] . '</td>';
                 }
                 echo '</tr>';
             }
@@ -181,7 +181,6 @@ if ($conn) {
     </tbody>
 </table>
 
-    </div>
     <?php include 'footer.html'; ?>   
    </body>
 </html>
