@@ -20,7 +20,7 @@ foreach ($filters as $filter) {
 }
 
 // Sorting
-$sort_columns = array("Wie", "Wat", "Waar", "message", "created", "update_time");
+$sort_columns = array("created", "Gebruiker", "Wie", "Wat", "Waar", "message", , "update_time");
 $sort_order = isset($_GET['sort']) ? $_GET['sort'] : '';
 
 if ($sort_order) {
