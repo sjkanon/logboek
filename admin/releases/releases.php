@@ -1,7 +1,7 @@
 <?php
-$username = 'username';
-$repository = 'repository';
-$accessToken = 'YOUR_ACCESS_TOKEN';
+$username = 'sjkanon';
+$repository = 'logboek';
+$accessToken = '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';
 
 $url = "https://api.github.com/repos/{$username}/{$repository}/releases";
 
