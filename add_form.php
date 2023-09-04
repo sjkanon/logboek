@@ -14,8 +14,8 @@
 
         <form method="post" action="add.php">
             <div class="form-group">
-                <label for="add_wie" size="14">Categorie</label>
-                <input type="text" id="add_wie" name="add_wie" required>
+                <label for="add_wie" >Categorie</label>
+                <input type="text" id="add_wie" name="add_wie" size="50" required>
             </div>
             
             <div class="form-group">
@@ -29,11 +29,11 @@
                 </div>
                 <div class="form-group">
                     <label for="add_waar">Locatie</label>
-                    <input type="text" id="add_waar" name="add_waar" required>
+                    <input type="text" id="add_waar" name="add_waar" size="50" required>
                 </div>
                 <div class="form-group">
     <label for="add_message">Bericht</label>
-    <textarea rows="8" id="add_message" name="add_message" required></textarea>
+    <textarea rows="8" id="add_message" name="add_message" size="50" required></textarea>
 </div>
 <div class="form-group">
                 <label for="add_status">Status</label>
@@ -44,10 +44,13 @@
                     <!-- Add more options as needed -->
                 </select>
                 </div>
-
                 <div class="form-group">
-    <label for="add_message">Bericht</label>
-    <textarea rows="8" id="add_message" name="add_message" required></textarea>
+                    <label for="add_melder">Melder</label>
+                    <input type="text" id="add_melder" name="add_melder" size="50" required>
+                </div>
+                <div class="form-group">
+    <label for="add_statusmessage">Status Bericht</label>
+    <textarea rows="8" id="addstatus_message" name="addstatus_message" size="50" required></textarea>
 </div>
             <button type="submit">Add Log</button>
         </form>
