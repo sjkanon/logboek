@@ -14,7 +14,7 @@
 
         <form method="post" action="add.php">
             <div class="form-group">
-                <label for="add_wie">Wie</label>
+                <label for="add_wie" size="14">Wie</label>
                 <input type="text" id="add_wie" name="add_wie" required>
             </div>
             
@@ -33,14 +33,22 @@
                 </div>
                 <div class="form-group">
     <label for="add_message">Bericht</label>
-    <textarea rows="4" id="add_message" name="add_message" required></textarea>
+    <textarea rows="8" id="add_message" name="add_message" required></textarea>
 </div>
-
-            <button type="submit">Add User</button>
+<div class="form-group">
+                <label for="add_status">Wat</label>
+                <select id="add_status" name="add_status" required>
+                    <option value="Gestrand">Gestrand</option>
+                    <option value="omgeslagen">Omgeslagen</option>
+                    <option value="Overig">Overig</option>
+                    <!-- Add more options as needed -->
+                </select>
+                </div>
+            <button type="submit">Add Log</button>
         </form>
 
         <div class="back-button">
-            <a href="user_management.php">Back to User List</a>
+            <a href="user_management.php">Back to log list</a>
         </div>
     </div>
 </body>

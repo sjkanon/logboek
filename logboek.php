@@ -11,7 +11,7 @@ function displayUserNavigation() {
 $sql = "SELECT * FROM logboek WHERE 1";
 
 // Filter criteria
-$filters = array("created","gebruiker", "Wie", "Wat", "Waar");
+$filters = array("gebruiker","created", "Wie", "Wat", "Waar");
 foreach ($filters as $filter) {
     if (isset($_GET["filter_$filter"]) && $_GET["filter_$filter"] !== '') {
         $filter_value = $_GET["filter_$filter"];
@@ -20,7 +20,7 @@ foreach ($filters as $filter) {
 }
 
 // Sorting
-$sort_columns = array("created", "gebruiker", "Wie", "Wat", "Waar", "message");
+$sort_columns = array("gebruiker","created", "Wie", "Wat", "Waar", "message", "updated_time");
 $sort_order = isset($_GET['sort']) ? $_GET['sort'] : '';
 
 if ($sort_order) {
@@ -156,12 +156,14 @@ if ($conn) {
         <table class="table" style="table-layout: auto;">
     <thead>
         <tr>
-            <th><a href="?sort=created_asc">Created &#9650;</a> <a href="?sort=created_desc">&#9660;</a></th>
             <th><a href="?sort=gebruiker_asc">Gebruiker &#9650;</a> <a href="?sort=gebruiker_desc">&#9660;</a></th>
+            <th><a href="?sort=created_asc">Created &#9650;</a> <a href="?sort=created_desc">&#9660;</a></th>
             <th><a href="?sort=wie_asc">Wie &#9650;</a> <a href="?sort=wie_desc">&#9660;</a></th>
             <th><a href="?sort=wat_asc">Wat &#9650;</a> <a href="?sort=wat_desc">&#9660;</a></th>
             <th><a href="?sort=waar_asc">Waar &#9650;</a> <a href="?sort=waar_desc">&#9660;</a></th>
             <th><a href="?sort=message_asc">Message &#9650;</a> <a href="?sort=message_desc">&#9660;</a></th>
+            <th><a href="?sort=updated_asc">Updated &#9650;</a> <a href="?sort=updated_desc">&#9660;</a></th>
+          
         </tr>
     </thead>
     <tbody>
