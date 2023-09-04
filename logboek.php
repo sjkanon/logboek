@@ -158,10 +158,10 @@ if ($conn) {
         <tr>
             <th><a href="?sort=gebruiker_asc">Gebruiker &#9650;</a> <a href="?sort=gebruiker_desc">&#9660;</a></th>
             <th><a href="?sort=created_asc">Created &#9650;</a> <a href="?sort=created_desc">&#9660;</a></th>
-            <th><a href="?sort=melder_asc">Created &#9650;</a> <a href="?sort=melder_desc">&#9660;</a></th>
-            <th><a href="?sort=wie_asc">Wie &#9650;</a> <a href="?sort=wie_desc">&#9660;</a></th>
+            <th><a href="?sort=melder_asc">Melder &#9650;</a> <a href="?sort=melder_desc">&#9660;</a></th>
+            <th><a href="?sort=wie_asc">Categorie &#9650;</a> <a href="?sort=wie_desc">&#9660;</a></th>
             <th><a href="?sort=wat_asc">Wat &#9650;</a> <a href="?sort=wat_desc">&#9660;</a></th>
-            <th><a href="?sort=waar_asc">Waar &#9650;</a> <a href="?sort=waar_desc">&#9660;</a></th>
+            <th><a href="?sort=waar_asc">Locatie &#9650;</a> <a href="?sort=waar_desc">&#9660;</a></th>
             <th><a href="?sort=message_asc">Message &#9650;</a> <a href="?sort=message_desc">&#9660;</a></th>
             <th><a href="?sort=status_asc">Status &#9650;</a> <a href="?sort=status_desc">&#9660;</a></th>
             <th><a href="?sort=statusmessage_asc">Status Message &#9650;</a> <a href="?sort=statusmessage_desc">&#9660;</a></th>
