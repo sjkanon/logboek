@@ -29,11 +29,11 @@
                 </div>
                 <div class="form-group">
                     <label for="add_waar">Locatie</label>
-                    <input type="text" id="add_waar" name="add_waar" required>
+                    <input type="text" id="add_waar" name="add_waar" size="50" required>
                 </div>
                 <div class="form-group">
     <label for="add_message">Bericht</label>
-    <textarea rows="8" id="add_message" name="add_message" required></textarea>
+    <textarea rows="8" id="add_message" name="add_message" size="50" required></textarea>
 </div>
 <div class="form-group">
                 <label for="add_status">Status</label>
@@ -47,7 +47,7 @@
 
                 <div class="form-group">
     <label for="add_statusmessage">Status Bericht</label>
-    <textarea rows="8" id="addstatus_message" name="addstatus_message" required></textarea>
+    <textarea rows="8" id="addstatus_message" name="addstatus_message" size="50" required></textarea>
 </div>
             <button type="submit">Add Log</button>
         </form>
