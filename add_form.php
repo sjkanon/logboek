@@ -14,7 +14,7 @@
 
         <form method="post" action="add.php">
             <div class="form-group">
-                <label for="add_wie" size="14">Wie</label>
+                <label for="add_wie" size="14">Categorie</label>
                 <input type="text" id="add_wie" name="add_wie" required>
             </div>
             
@@ -28,7 +28,7 @@
                 </select>
                 </div>
                 <div class="form-group">
-                    <label for="add_waar">Waar</label>
+                    <label for="add_waar">Locatie</label>
                     <input type="text" id="add_waar" name="add_waar" required>
                 </div>
                 <div class="form-group">
@@ -44,6 +44,11 @@
                     <!-- Add more options as needed -->
                 </select>
                 </div>
+
+                <div class="form-group">
+    <label for="add_message">Bericht</label>
+    <textarea rows="8" id="add_message" name="add_message" required></textarea>
+</div>
             <button type="submit">Add Log</button>
         </form>
 
