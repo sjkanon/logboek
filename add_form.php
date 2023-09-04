@@ -14,7 +14,7 @@
 
         <form method="post" action="add.php">
             <div class="form-group">
-                <label for="add_wie">Wie</label>
+                <label for="add_wie" size="14">Wie</label>
                 <input type="text" id="add_wie" name="add_wie" required>
             </div>
             
