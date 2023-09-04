@@ -162,6 +162,7 @@ if ($conn) {
             <th><a href="?sort=wat_asc">Wat &#9650;</a> <a href="?sort=wat_desc">&#9660;</a></th>
             <th><a href="?sort=waar_asc">Waar &#9650;</a> <a href="?sort=waar_desc">&#9660;</a></th>
             <th><a href="?sort=message_asc">Message &#9650;</a> <a href="?sort=message_desc">&#9660;</a></th>
+            <th><a href="?sort=status_asc">Status &#9650;</a> <a href="?sort=status_desc">&#9660;</a></th>
             <th><a href="?sort=updated_asc">Updated &#9650;</a> <a href="?sort=updated_desc">&#9660;</a></th>
           
         </tr>
