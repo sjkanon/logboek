@@ -181,6 +181,8 @@ if ($conn) {
     </tbody>
 </table>
 
+
+    </div>
     <?php include 'footer.html'; ?>   
    </body>
 </html>
