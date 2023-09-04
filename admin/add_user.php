@@ -24,8 +24,8 @@
             <div class="form-group">
                 <label for="add_grouptype">Group Type</label>
                 <select id="add_grouptype" name="add_grouptype" required>
-                    <option value="Admin">Admin</option>
-                    <option value="Logboek">Logboek User</option>
+                    <option value="admin">Admin</option>
+                    <option value="logboek">Logboek User</option>
                     <option value="uitgifte">Uitleen User</option>
                     <option value="uluser">Uitleen en Logboek User</option>
                     <!-- Add more options as needed -->
