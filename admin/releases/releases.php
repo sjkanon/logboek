@@ -1,19 +1,7 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 // URL of the GitHub releases page
 $releaseUrl = 'https://github.com/sjkanon/logboek/releases';
-
-
-$doc = new DOMDocument();
-if (!$doc->loadHTMLFile($releaseUrl)) {
-    foreach (libxml_get_errors() as $error) {
-        echo "XML Error: " . $error->message . "<br>";
-    }
-    libxml_clear_errors();
-}
 
 // Create a DOMDocument object
 $doc = new DOMDocument();
@@ -24,8 +12,6 @@ $doc->loadHTMLFile($releaseUrl);
 
 // Get all elements with the class "release"
 $releaseElements = $doc->getElementsByClassName('release');
-$html = file_get_contents($releaseUrl);
-echo $html;
 
 ?>
 
