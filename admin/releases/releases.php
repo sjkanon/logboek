@@ -1,26 +1,23 @@
 <?php
-$username = 'sjkanon';
-$repository = 'logboek';
-$accessToken = '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';
+// URL of the GitHub releases page
+$releaseUrl = 'https://github.com/sjkanon/logboek/releases';
 
-$url = "https://api.github.com/repos/{$username}/{$repository}/releases";
+// Create a DOMDocument object
+$doc = new DOMDocument();
+libxml_use_internal_errors(true);
 
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, ["Authorization: Bearer {$accessToken}"]);
+// Load the HTML content from the URL
+$doc->loadHTMLFile($releaseUrl);
 
-$response = curl_exec($ch);
-curl_close($ch);
+// Get all elements with the class "release"
+$releaseElements = $doc->getElementsByClassName('release');
 
-$releases = json_decode($response, true);
 ?>
-
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>GitHub Release Notes</title>
+    <title>GitHub Releases</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -34,11 +31,10 @@ $releases = json_decode($response, true);
     </style>
 </head>
 <body>
-    <h1>GitHub Release Notes</h1>
-    <?php foreach ($releases as $release): ?>
+    <h1>GitHub Releases</h1>
+    <?php foreach ($releaseElements as $releaseElement): ?>
         <div class="release">
-            <h2><?php echo $release['name']; ?></h2>
-            <p><?php echo $release['body']; ?></p>
+            <?php echo $releaseElement->C14N(); ?>
         </div>
     <?php endforeach; ?>
 </body>
