@@ -173,7 +173,7 @@ if ($conn) {
         </table>
     </div>
     <footer>
-        <p>&copy; 2023 Sjoerd Kanon by AvhTech. All rights reserved.</p>
+    <?php include 'footer.html'; ?>
     </footer>
 </body>
 </html>
