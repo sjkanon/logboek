@@ -62,7 +62,7 @@ if ($conn) {
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </head>
-<body>
+<>
     <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">EventSystem</a>
@@ -172,8 +172,6 @@ if ($conn) {
             </tbody>
         </table>
     </div>
-    <footer>
-    <?php include 'footer.html'; ?>
-    </footer>
-</body>
+    <?php include 'footer.html'; ?>   
+   </body>
 </html>
