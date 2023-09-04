@@ -11,7 +11,7 @@ function displayUserNavigation() {
 $sql = "SELECT * FROM logboek WHERE 1";
 
 // Filter criteria
-$filters = array("created","gebruiker", "Wie", "Wat", "Waar", "update_time");
+$filters = array("created","gebruiker", "Wie", "Wat", "Waar");
 foreach ($filters as $filter) {
     if (isset($_GET["filter_$filter"]) && $_GET["filter_$filter"] !== '') {
         $filter_value = $_GET["filter_$filter"];
@@ -20,7 +20,7 @@ foreach ($filters as $filter) {
 }
 
 // Sorting
-$sort_columns = array("created", "gebruiker", "Wie", "Wat", "Waar", "message", "update_time");
+$sort_columns = array("created", "gebruiker", "Wie", "Wat", "Waar", "message");
 $sort_order = isset($_GET['sort']) ? $_GET['sort'] : '';
 
 if ($sort_order) {
@@ -149,7 +149,6 @@ if ($conn) {
         <th><a href="?sort=wat_asc">Wat &#9650;</a> <a href="?sort=wat_desc">&#9660;</a></th>
         <th><a href="?sort=waar_asc">Waar &#9650;</a> <a href="?sort=waar_desc">&#9660;</a></th>
         <th><a href="?sort=message_asc">Message &#9650;</a> <a href="?sort=message_desc">&#9660;</a></th>
-        <th><a href="?sort=update_time_asc">Updated &#9650;</a> <a href="?sort=update_time_desc">&#9660;</a></th>
     </tr>
 </thead>
 
