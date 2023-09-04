@@ -1,17 +1,10 @@
 <?php
+require_once 'simple_html_dom.php'; // Include the Simple HTML DOM Parser library
 
-// URL of the GitHub releases page
 $releaseUrl = 'https://github.com/sjkanon/logboek/releases';
 
-// Create a DOMDocument object
-$doc = new DOMDocument();
-libxml_use_internal_errors(true);
-
 // Load the HTML content from the URL
-$doc->loadHTMLFile($releaseUrl);
-
-// Get all elements with the class "release"
-$releaseElements = $doc->getElementsByClassName('release');
+$html = file_get_html($releaseUrl);
 
 ?>
 
@@ -33,9 +26,9 @@ $releaseElements = $doc->getElementsByClassName('release');
 </head>
 <body>
     <h1>GitHub Releases</h1>
-    <?php foreach ($releaseElements as $releaseElement): ?>
+    <?php foreach ($html->find('.release') as $releaseElement): ?>
         <div class="release">
-            <?php echo $releaseElement->C14N(); ?>
+            <?php echo $releaseElement->outertext; ?>
         </div>
     <?php endforeach; ?>
 </body>
