@@ -69,18 +69,17 @@ a.nav-link{
 }
 
 footer {
-    margin-top: auto;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
     text-align: center;
-    padding: 10px;
-    background-color: #f8f8f8;
-    border-top: 1px solid #ddd;
 }
 
-footer p {
-    margin: 0;
-    font-size: 14px;
-    color: #888;
+.footer-content {
+    max-width: 960px;
+    margin: 0 auto;
 }
+
 .content-full{
     background-color: rgba(255, 255, 255, 0.55);
     border-radius: 5px;
