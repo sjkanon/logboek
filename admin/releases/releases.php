@@ -21,11 +21,22 @@ $releases = json_decode($response, true);
 <html>
 <head>
     <title>GitHub Release Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .release {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            max-width: 600px;
+        }
+    </style>
 </head>
 <body>
     <h1>GitHub Release Notes</h1>
     <?php foreach ($releases as $release): ?>
-        <div>
+        <div class="release">
             <h2><?php echo $release['name']; ?></h2>
             <p><?php echo $release['body']; ?></p>
         </div>
