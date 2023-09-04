@@ -123,7 +123,7 @@ if ($conn) {
             </div>
     </nav>
     </header>
-    <div class="container">
+    <div class="container-full">
         <div class="add-user-button">
             <a href="add_form.php" class="btn">Add Data</a>
         </div>
