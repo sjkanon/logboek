@@ -33,14 +33,14 @@
                 </div>
                 <div class="form-group">
     <label for="add_message">Bericht</label>
-    <textarea rows="4" id="add_message" name="add_message" required></textarea>
+    <textarea rows="8" id="add_message" name="add_message" required></textarea>
 </div>
 
-            <button type="submit">Add User</button>
+            <button type="submit">Add Log</button>
         </form>
 
         <div class="back-button">
-            <a href="user_management.php">Back to User List</a>
+            <a href="user_management.php">Back to log list</a>
         </div>
     </div>
 </body>
