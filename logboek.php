@@ -11,7 +11,7 @@ function displayUserNavigation() {
 $sql = "SELECT * FROM logboek WHERE 1";
 
 // Filter criteria
-$filters = array("Wie", "Wat", "Waar", "created", "update_time");
+$filters = array("created","gebruiker", "Wie", "Wat", "Waar");
 foreach ($filters as $filter) {
     if (isset($_GET["filter_$filter"]) && $_GET["filter_$filter"] !== '') {
         $filter_value = $_GET["filter_$filter"];
@@ -20,7 +20,7 @@ foreach ($filters as $filter) {
 }
 
 // Sorting
-$sort_columns = array("Wie", "Wat", "Waar", "message", "created", "update_time");
+$sort_columns = array("created", "gebruiker", "Wie", "Wat", "Waar", "message");
 $sort_order = isset($_GET['sort']) ? $_GET['sort'] : '';
 
 if ($sort_order) {
@@ -62,7 +62,6 @@ if ($conn) {
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </head>
-<body>
     <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">EventSystem</a>
@@ -123,7 +122,7 @@ if ($conn) {
             </div>
     </nav>
     </header>
-    <div class="container">
+    <div class="container-full">
         <div class="add-user-button">
             <a href="add_form.php" class="btn">Add Data</a>
         </div>
@@ -144,12 +143,12 @@ if ($conn) {
         <table class="table">
         <thead>
     <tr>
+    <th><a href="?sort=created_asc">Created &#9650;</a> <a href="?sort=created_desc">&#9660;</a></th>
+    <th><a href="?sort=created_asc">Gebruiker &#9650;</a> <a href="?sort=created_desc">&#9660;</a></th>
         <th><a href="?sort=wie_asc">Wie &#9650;</a> <a href="?sort=wie_desc">&#9660;</a></th>
         <th><a href="?sort=wat_asc">Wat &#9650;</a> <a href="?sort=wat_desc">&#9660;</a></th>
         <th><a href="?sort=waar_asc">Waar &#9650;</a> <a href="?sort=waar_desc">&#9660;</a></th>
         <th><a href="?sort=message_asc">Message &#9650;</a> <a href="?sort=message_desc">&#9660;</a></th>
-        <th><a href="?sort=created_asc">Created &#9650;</a> <a href="?sort=created_desc">&#9660;</a></th>
-        <th><a href="?sort=update_time_asc">Updated &#9650;</a> <a href="?sort=update_time_desc">&#9660;</a></th>
     </tr>
 </thead>
 
@@ -171,8 +170,6 @@ if ($conn) {
             </tbody>
         </table>
     </div>
-    <footer>
-        <p>&copy; 2023 Sjoerd Kanon by AvhTech. All rights reserved.</p>
-    </footer>
-</body>
+    <?php include 'footer.html'; ?>   
+   </body>
 </html>
