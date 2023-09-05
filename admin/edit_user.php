@@ -8,7 +8,7 @@ $edit_id = $edit_username = $edit_grouptype = $edit_password = "";
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["edit_id"])) {
     $edit_id = $_GET["edit_id"];
     $edit_sql = "SELECT username, grouptype FROM users_new WHERE id=?";
-    $edit_stmt = mysqli_prepare($link, $edit_sql);
+    $edit_stmt = mysqli_prepare($conn, $edit_sql);
     mysqli_stmt_bind_param($edit_stmt, "i", $edit_id);
     mysqli_stmt_execute($edit_stmt);
     mysqli_stmt_bind_result($edit_stmt, $edit_username, $edit_grouptype);
