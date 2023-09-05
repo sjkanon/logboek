@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add_username"])) {
     $hashed_password = password_hash($add_password, PASSWORD_DEFAULT);
 
     $insert_sql = "INSERT INTO users_new (username, grouptype, password) VALUES (?, ?, ?)";
-    $insert_stmt = mysqli_prepare($link, $insert_sql);
+    $insert_stmt = mysqli_prepare($conn, $insert_sql);
     mysqli_stmt_bind_param($insert_stmt, "sss", $add_username, $add_grouptype, $hashed_password);
     mysqli_stmt_execute($insert_stmt);
     mysqli_stmt_close($insert_stmt);
