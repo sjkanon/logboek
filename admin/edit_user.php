@@ -44,7 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["edit_id"])) {
                     <option value="admin" <?php if ($edit_grouptype === "admin") echo "selected"; ?>>Admin</option>
                     <option value="logboek" <?php if ($edit_grouptype === "logboek") echo "selected"; ?>>Logboek</option>
                     <option value="uitgifte" <?php if ($edit_grouptype === "uitgifte") echo "selected"; ?>>Uitgifte</option>
-                    <option value="uluser" <?php if ($edit_grouptype === "uluser") echo "selected"; ?>>UL User</option>
+                    <option value="uluser" <?php if ($edit_grouptype === "uluser") echo "selected"; ?>>Uitgifte en Logboek User</option>
+                    <option value="uluser" <?php if ($edit_grouptype === "readonly") echo "selected"; ?>>Read Only User</option>
                 </select>
             </div>
             <div class="form-group">
