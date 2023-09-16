@@ -79,3 +79,31 @@ h1, h2 {
 .submenu .nav-link {
     color: #333;
 }
+
+
+/* Create a wrapper to center the content */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Create a container for the columns */
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px; /* Adjust the width as needed */
+    width: 90%; /* Adjust the width as needed */
+    padding: 20px;
+}
+
+/* Style the columns */
+.column {
+    flex: 1;
+    background-color: white; /* Background color of the columns */
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ddd; /* Add a border for separation */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
