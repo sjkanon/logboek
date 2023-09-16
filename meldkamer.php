@@ -130,6 +130,15 @@ if ($conn) {
             </div>
         </div>
         <!-- Display Data -->
+        
+        <div class="wrapper">
+        <div class="container">
+            <div class="column">Column 1</div>
+            <div class="column">Column 2</div>
+            <div class="column">Column 3</div>
+        </div>
+    </div>
+        
         <table class="table" style="table-layout: auto;">
     <thead>
         <tr>
