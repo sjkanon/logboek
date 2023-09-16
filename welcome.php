@@ -48,6 +48,10 @@ session_start();
                           <li class="nav-item">
                               <a class="nav-link" href="uitgifte.php">Uitgifte</a>
                           </li>
+                          <?php } elseif ($_SESSION["grouptype"] === "uluser") { ?>
+                              <li class="nav-item">
+                                <a class="nav-link" href="meldkamer.php">Meldkamer</a>
+                            </li>
                           <li class="nav-item">
                                 <a class="nav-link" href="logboek.php">Logboek</a>
                           </li>
