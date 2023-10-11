@@ -125,7 +125,7 @@ if ($conn) {
    
    <div class="grid-container">
           <div class="item1"> test1</div>
-          <div class="item2"> test2</div>\
+          <div class="item2"> test2</div>
           <div class="item3"> test3</div>
 
 
