@@ -136,7 +136,7 @@ if ($conn) {
       </div>
 
       </div>
-
+</div>
         <div class="testcolumn">
   <p>item-1</p>
   <p>item-2</p>
