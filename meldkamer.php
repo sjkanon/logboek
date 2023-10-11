@@ -122,14 +122,8 @@ if ($conn) {
             </div>
     </nav>
     </header>
-    <div class="container-full">
+   
     <div class="row">
-        <div class="col-md-6">
-            <div class="add-user-button">
-                <a href="add_form.php" class="btn btn-primary">Add Data</a>
-            </div>
-        </div>
-        <div class="container">
       <div class="meldkamerrow" >
         <div class=testcolumn></div>
         blat
@@ -140,7 +134,10 @@ if ($conn) {
       <div class="meldkamercolumn" >
         bladi3
       </div>
-<div class="testcolumn">
+
+      </div>
+
+        <div class="testcolumn">
   <p>item-1</p>
   <p>item-2</p>
   <p>item-3</p>
@@ -149,7 +146,6 @@ if ($conn) {
   <p>item-6</p>
   <p>item-7</p>
 </div>
-      </div>
     <?php include 'footer.html'; ?>   
    </body>
 </html>
