@@ -124,9 +124,9 @@ if ($conn) {
     </header>
    
    <div class="grid-container">
-          <div class="item1"> test1</div>
-          <div class="item2"> test2</div>
-          <div class="item3"> test3</div>
+          <div class="grid-item item1"> test1</div>
+          <div class="grid-item item2"> test2</div>
+          <div class="grid-item item3"> test3</div>
 
 
 
