@@ -129,43 +129,7 @@ if ($conn) {
                 <a href="add_form.php" class="btn btn-primary">Add Data</a>
             </div>
         </div>
-        <!-- Display Data -->
-        <table class="table" style="table-layout: auto;">
-    <thead>
-        <tr>
-            <th><a href="?sort=gebruiker_asc">Gebruiker &#9650;</a> <a href="?sort=gebruiker_desc">&#9660;</a></th>
-            <th><a href="?sort=datum_asc">Datum &#9650;</a> <a href="?sort=datum_desc">&#9660;</a></th>
-            <th><a href="?sort=tijd_asc">Tijd &#9650;</a> <a href="?sort=tijd_desc">&#9660;</a></th>
-            <th><a href="?sort=melder_asc">Melder &#9650;</a> <a href="?sort=melder_desc">&#9660;</a></th>
-            <th><a href="?sort=wie_asc">Categorie &#9650;</a> <a href="?sort=wie_desc">&#9660;</a></th>
-            <th><a href="?sort=wat_asc">Wat &#9650;</a> <a href="?sort=wat_desc">&#9660;</a></th>
-            <th><a href="?sort=waar_asc">Locatie &#9650;</a> <a href="?sort=waar_desc">&#9660;</a></th>
-            <th><a href="?sort=message_asc">Message &#9650;</a> <a href="?sort=message_desc">&#9660;</a></th>
-            <th><a href="?sort=status_asc">Status &#9650;</a> <a href="?sort=status_desc">&#9660;</a></th>
-            <th><a href="?sort=statusmessage_asc">Status Message &#9650;</a> <a href="?sort=statusmessage_desc">&#9660;</a></th>
-            <th><a href="?sort=updated_asc">Update &#9650;</a> <a href="?sort=updated_desc">&#9660;</a></th>
-          
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo '<tr>';
-                foreach ($sort_columns as $column) {
-                    echo '<td>' . $row[$column] . '</td>';
-                }
-                echo '</tr>';
-            }
-        } else {
-            echo '<tr><td colspan="' . count($sort_columns) . '">No data available.</td></tr>';
-        }
-        ?>
-    </tbody>
-</table>
-
-
-    </div>
+      
     <?php include 'footer.html'; ?>   
    </body>
 </html>
