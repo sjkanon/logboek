@@ -119,24 +119,33 @@ h1, h2 {
 
 }
 
-.meldkamercolumn {
+.grid-container{
 
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin: 10px;
-    box-sizing: border-box;
-    float: right ;
+    display:grid;
+    background-color: gray;
+
+
 }
 
-.testcolumn {
- -webkit-column-count: 2; 
-  -webkit-column-gap: 40px;
-  -moz-column-count: 2;
-  -moz-column-gap: 40px;
-  column-count: 2;
-  column-gap: 40px;
+.item1{
+
+    grid-column: 1;
+    grid-row: 1;
+
+
 }
-.container {
-    display: flex;
+.item2{
+
+    grid-column: 1;
+    grid-row: 2;
+
+
+}
+
+.item3{
+
+    grid-column: 2/span 2;
+    grid-row: 1;
+
+
 }
