@@ -131,8 +131,8 @@ if ($conn) {
         </div>
         <div class="container">
       <div class="meldkamerrow" >
-        <div class=meldkamercollumn></div>
-        blad
+        <div class=testcolumn></div>
+        blat
       </div>
       <div class="meldkamerrow" >
         blad2
