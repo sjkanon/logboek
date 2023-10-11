@@ -149,3 +149,10 @@ h1, h2 {
 
 
 }
+
+.grid-item {
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+  }
