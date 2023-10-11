@@ -140,7 +140,15 @@ if ($conn) {
       <div class="meldkamercolumn" >
         bladi3
       </div>
-
+<div class="testcolumn">
+  <p>item-1</p>
+  <p>item-2</p>
+  <p>item-3</p>
+  <p>item-4</p>
+  <p>item-5</p>
+  <p>item-6</p>
+  <p>item-7</p>
+</div>
       </div>
     <?php include 'footer.html'; ?>   
    </body>
