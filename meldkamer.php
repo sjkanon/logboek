@@ -129,14 +129,17 @@ if ($conn) {
                 <a href="add_form.php" class="btn btn-primary">Add Data</a>
             </div>
         </div>
+        <div class="container">
       <div class="meldkamerrow" >
-        bla
+        blad
       </div>
       <div class="meldkamerrow" >
-        bla2
+        blad2
       </div>
       <div class="meldkamercolumn" >
-        bla3
+        blad3
+      </div>
+
       </div>
     <?php include 'footer.html'; ?>   
    </body>
